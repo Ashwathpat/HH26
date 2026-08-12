@@ -798,3 +798,14 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
 @keyframes transition-line-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes chip-float { 50% { transform: translateY(-6px); } }
 @media (max-width: 760px) { .generator-intro { display: block; } .generator-intro p { margin-top: 1.5rem; } .transition-chip { right: 1.5rem; bottom: 2rem; } }
+
+/* Rising-page scroll choreography */
+.goa-home { position: sticky; top: 0; z-index: 0; min-height: 100svh; }
+.home-transition { z-index: 3; min-height: 78vh; margin-top: -1px; border-radius: 32px 32px 0 0; box-shadow: 0 -28px 80px rgba(9,10,8,.22); transform: translateZ(0); }
+.home-transition::after { content: ''; position: absolute; top: 1.15rem; left: 50%; width: 64px; height: 4px; border-radius: 999px; background: rgba(11,12,10,.26); transform: translateX(-50%); }
+.home-transition .transition-copy, .home-transition .transition-chip { animation: rising-content .9s cubic-bezier(.2,.8,.2,1) both; }
+.home-transition .transition-chip { animation-delay: .12s; }
+.home-transition + .app-header { position: relative; z-index: 4; }
+.generator-section { position: relative; z-index: 4; box-shadow: 0 -18px 48px rgba(9,10,8,.1); }
+@keyframes rising-content { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .home-transition .transition-copy, .home-transition .transition-chip { animation: none; } }
