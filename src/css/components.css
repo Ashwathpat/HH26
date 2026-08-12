@@ -1409,3 +1409,181 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
   .goa-home .home-content h2 .hero-line-top { font-size: .78em; }
   .goa-home .home-content h2 .hero-line-bottom { -webkit-text-stroke-width: 2px !important; }
 }
+
+
+/* HH26 consistency pass: one grid, one rhythm, one component language */
+:root {
+  --hh-gutter: clamp(1.25rem, 4vw, 4rem);
+  --hh-max: 1440px;
+  --hh-ink: #000;
+  --hh-paper: #fff;
+  --hh-mint: #9be5d4;
+  --hh-blue: #4da2ff;
+  --hh-yellow: #ffd731;
+  --hh-coral: #fb4903;
+  --hh-violet: #5c4ade;
+  --hh-radius: 18px;
+  --hh-border: 2px solid var(--hh-ink);
+  --hh-shadow: 6px 6px 0 var(--hh-ink);
+}
+.goa-home,
+.home-transition,
+.generator-section {
+  width: 100%;
+}
+.goa-home .home-topline,
+.goa-home .home-brandline,
+.goa-home .home-footer {
+  left: var(--hh-gutter) !important;
+  right: var(--hh-gutter) !important;
+}
+.goa-home .home-topline { left: var(--hh-gutter) !important; }
+.goa-home .home-brandline { right: var(--hh-gutter) !important; }
+.goa-home .home-content {
+  width: min(calc(100% - (var(--hh-gutter) * 2)), 1240px) !important;
+  padding-inline: 0 !important;
+}
+.goa-home .home-content h2 {
+  max-width: 1080px !important;
+  margin-inline: auto !important;
+}
+.goa-home .home-copy { max-width: 430px !important; }
+.home-transition {
+  min-height: clamp(560px, 72vh, 820px) !important;
+  padding-inline: var(--hh-gutter) !important;
+  border: 0 !important;
+  border-radius: 28px 28px 0 0 !important;
+  box-shadow: 0 -18px 0 rgba(0,0,0,.08) !important;
+}
+.home-transition .transition-copy {
+  width: min(100%, var(--hh-max)) !important;
+  margin-inline: auto !important;
+}
+.home-transition .transition-chip { right: var(--hh-gutter) !important; }
+.home-transition::after { top: 1.25rem !important; }
+.home-transition + .app-header {
+  background: var(--hh-mint) !important;
+  color: var(--hh-ink) !important;
+  border-bottom: var(--hh-border) !important;
+  box-shadow: none !important;
+}
+.home-transition + .app-header h1,
+.home-transition + .app-header .subtitle,
+.home-transition + .app-header .live-pill {
+  color: var(--hh-ink) !important;
+  -webkit-text-fill-color: var(--hh-ink) !important;
+  background: none !important;
+}
+.home-transition + .app-header .logo-badge {
+  background: var(--hh-yellow) !important;
+  color: var(--hh-ink) !important;
+  border: var(--hh-border) !important;
+  box-shadow: none !important;
+}
+.home-transition + .app-header .live-pill { border-color: var(--hh-ink) !important; }
+.home-transition + .app-header .pulse-dot { background: var(--hh-coral) !important; box-shadow: none !important; }
+.generator-section {
+  max-width: var(--hh-max) !important;
+  margin-inline: auto !important;
+  padding: clamp(3rem, 6vw, 6rem) var(--hh-gutter) 5rem !important;
+  gap: clamp(1.5rem, 3vw, 3rem) !important;
+}
+.generator-intro {
+  width: 100% !important;
+  min-height: 150px;
+  align-items: end !important;
+  padding: 0 0 2rem !important;
+  margin-bottom: .25rem;
+  border-bottom: var(--hh-border) !important;
+}
+.generator-intro h2 {
+  max-width: 9ch;
+  line-height: .95 !important;
+  letter-spacing: -.06em !important;
+}
+.generator-intro p { max-width: 34ch !important; }
+.generator-section .panel-card,
+.generator-section .share-hub {
+  border: var(--hh-border) !important;
+  border-radius: var(--hh-radius) !important;
+  box-shadow: var(--hh-shadow) !important;
+}
+.generator-section .panel-card:hover { transform: translateY(-2px); }
+.generator-section .card-header,
+.generator-section .preview-card-header {
+  min-height: 42px;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+  border-bottom: var(--hh-border) !important;
+}
+.generator-section .step-num {
+  width: 32px !important;
+  height: 32px !important;
+  border: var(--hh-border) !important;
+  border-radius: 10px !important;
+  background: var(--hh-coral) !important;
+  color: var(--hh-paper) !important;
+}
+.generator-section .upload-zone {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--hh-ink) !important;
+  border-radius: 14px !important;
+}
+.generator-section input[type="text"],
+.generator-section select,
+.generator-section textarea {
+  min-height: 44px;
+  border: var(--hh-border) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.generator-section input[type="text"]:focus,
+.generator-section select:focus,
+.generator-section textarea:focus { box-shadow: 3px 3px 0 var(--hh-blue) !important; }
+.generator-section .canvas-wrapper {
+  border: var(--hh-border) !important;
+  border-radius: var(--hh-radius) !important;
+  box-shadow: var(--hh-shadow) !important;
+  overflow: hidden;
+}
+.generator-section .preview-sticky { gap: 1.25rem !important; }
+.generator-section .btn-primary-lg,
+.generator-section #downloadBtn {
+  min-height: 52px;
+  border: var(--hh-border) !important;
+  border-radius: 999px !important;
+  box-shadow: 4px 4px 0 var(--hh-ink) !important;
+}
+.generator-section .btn-primary-lg:hover,
+.generator-section #downloadBtn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--hh-ink) !important; }
+.generator-section .share-hub {
+  padding: 1.25rem !important;
+}
+.generator-section .share-hub .share-buttons { gap: .75rem !important; }
+.generator-section .share-hub button { min-height: 42px; border: var(--hh-border) !important; border-radius: 999px !important; }
+.generator-section .single-frame-card { border: var(--hh-border) !important; box-shadow: var(--hh-shadow) !important; }
+@media (max-width: 1024px) {
+  .generator-section { padding-inline: var(--hh-gutter) !important; }
+  .generator-intro { min-height: 0; }
+}
+@media (max-width: 700px) {
+  .goa-home .home-topline,
+  .goa-home .home-brandline,
+  .goa-home .home-footer { left: 1rem !important; right: 1rem !important; }
+  .home-transition { padding-inline: 1rem !important; border-radius: 20px 20px 0 0 !important; }
+  .home-transition .transition-chip { right: 1rem !important; }
+  .generator-section { padding-inline: 1rem !important; }
+  .generator-intro { display: grid !important; gap: 1rem; }
+  .generator-intro h2 { max-width: 100% !important; }
+  .generator-section .panel-card,
+  .generator-section .share-hub { box-shadow: 4px 4px 0 var(--hh-ink) !important; }
+}
+
+
+/* Grid edge-label correction */
+.goa-home .home-topline { left: var(--hh-gutter) !important; right: auto !important; }
+.goa-home .home-brandline { left: auto !important; right: var(--hh-gutter) !important; }
+.goa-home .home-footer { left: var(--hh-gutter) !important; right: var(--hh-gutter) !important; }
