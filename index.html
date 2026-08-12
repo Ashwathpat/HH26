@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instant ID Card Generator & Social Share</title>
+  <meta name="description" content="Generate high-tech custom ID cards with random frames, unique serial IDs, instant PNG download, and direct X (Twitter), WhatsApp & Instagram sharing." />
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="logo-container">
+      <div class="logo-badge">
+        <i class="fa-solid fa-id-card"></i>
+      </div>
+      <div>
+        <h1>ID Matrix Studio</h1>
+        <p class="subtitle">Instant Smart ID Card & Frame Generator</p>
+      </div>
+    </div>
+    <div class="header-status">
+      <span class="live-pill"><span class="pulse-dot"></span> System Ready</span>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-container">
+    <!-- Left Column: Controls & Inputs -->
+    <section class="controls-panel">
+      <!-- Step 1: Upload Photo -->
+      <div class="panel-card">
+        <div class="card-header">
+          <div class="step-num">1</div>
+          <h2>Upload Your Photo</h2>
+        </div>
+        
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="photoInput" accept="image/*" class="file-input-hidden" />
+          <div class="upload-content">
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+            <p class="upload-title">Drag & drop photo here or <span>Browse</span></p>
+            <p class="upload-hint">Supports JPG, PNG, WEBP (Auto-cropped & frame fitted)</p>
+          </div>
+        </div>
+
+        <div class="photo-controls" id="photoControls">
+          <label><i class="fa-solid fa-magnifying-glass-plus"></i> Photo Zoom:</label>
+          <input type="range" id="zoomSlider" min="0.5" max="3" step="0.05" value="1" />
+          
+          <div class="btn-group-sm">
+            <button id="resetPhotoBtn" class="btn btn-secondary-sm">
+              <i class="fa-solid fa-arrow-rotate-left"></i> Center Photo
+            </button>
+            <button id="randomFrameBtn" class="btn btn-accent-sm">
+              <i class="fa-solid fa-shuffle"></i> Random Frame
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Custom Frame Selector (10 Templates) -->
+      <div class="panel-card">
+        <div class="card-header">
+          <div class="step-num">2</div>
+          <h2>Select Frame Template (10 Styles)</h2>
+        </div>
+        <div class="frames-grid" id="framesGrid">
+          <!-- 10 Frame Buttons generated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Step 3: Edit Details -->
+      <div class="panel-card">
+        <div class="card-header">
+          <div class="step-num">3</div>
+          <h2>ID Details</h2>
+          <button id="regenerateIdBtn" class="btn-link" title="Generate New Unique ID">
+            <i class="fa-solid fa-arrows-rotate"></i> New Unique ID
+          </button>
+        </div>
+
+        <form class="details-form" onsubmit="event.preventDefault();">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" value="Alex Vance" placeholder="Enter Full Name" />
+            </div>
+            <div class="form-group">
+              <label for="roleTitle">Role / Designation</label>
+              <input type="text" id="roleTitle" value="Senior Cyber Architect" placeholder="e.g. Lead Developer" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="orgName">Organization / Squad</label>
+              <input type="text" id="orgName" value="NEXUS LABS ALPHA" placeholder="Organization Name" />
+            </div>
+            <div class="form-group">
+              <label for="clearanceLevel">Clearance Level</label>
+              <select id="clearanceLevel">
+                <option value="LEVEL 05 - OMNI">LEVEL 05 - OMNI ACCESS</option>
+                <option value="VIP EXECUTIVE">VIP EXECUTIVE</option>
+                <option value="CORE DEVELOPER">CORE DEVELOPER</option>
+                <option value="SPECIAL OPERATIVE">SPECIAL OPERATIVE</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="uniqueId">Unique Serial ID (Auto-Generated)</label>
+              <div class="input-with-badge">
+                <input type="text" id="uniqueId" readonly />
+                <span class="badge-tag">UNIQUE</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="issueDate">Issue Date</label>
+              <input type="text" id="issueDate" value="2026-08-12" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 4: Auto-Generated Post Caption -->
+      <div class="panel-card">
+        <div class="card-header">
+          <div class="step-num">4</div>
+          <h2>Auto-Generated Social Caption</h2>
+          <button id="copyCaptionBtn" class="btn-link" title="Copy Caption">
+            <i class="fa-solid fa-copy"></i> Copy
+          </button>
+        </div>
+        <textarea id="captionBox" rows="4" class="caption-textarea"></textarea>
+      </div>
+    </section>
+
+    <!-- Right Column: Live ID Preview & Action Actions -->
+    <section class="preview-panel">
+      <div class="preview-sticky">
+        <div class="preview-card-header">
+          <h2><i class="fa-solid fa-eye"></i> Live ID Card Preview</h2>
+          <span class="resolution-tag">High Res (1200 x 750)</span>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="idCardCanvas" width="1200" height="750"></canvas>
+          <div class="canvas-hint">
+            <i class="fa-solid fa-hand-pointer"></i> Drag photo directly on canvas to reposition
+          </div>
+        </div>
+
+        <!-- Download & Primary Actions -->
+        <div class="action-buttons-group">
+          <button id="downloadBtn" class="btn btn-primary-lg">
+            <i class="fa-solid fa-download"></i> Download ID Card (PNG)
+          </button>
+        </div>
+
+        <!-- Instant Social Share Hub -->
+        <div class="share-hub">
+          <h3><i class="fa-solid fa-share-nodes"></i> Instant Social Share</h3>
+          <p class="share-subtitle">Post your newly generated ID badge to your social networks!</p>
+          
+          <div class="share-grid">
+            <button id="shareXBtn" class="btn btn-social btn-x">
+              <i class="fa-brands fa-x-twitter"></i> Post to X.com
+            </button>
+            <button id="shareWhatsappBtn" class="btn btn-social btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </button>
+            <button id="shareInstaBtn" class="btn btn-social btn-instagram">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toastMsg">Action completed successfully!</span>
+  </div>
+
+  <!-- Instagram / Copy Modal -->
+  <div id="instaModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-brands fa-instagram"></i> Share to Instagram</h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ol class="insta-steps">
+          <li><strong>Step 1:</strong> Your ID Card image has been copied / downloaded to your device.</li>
+          <li><strong>Step 2:</strong> Social caption has been copied to your clipboard.</li>
+          <li><strong>Step 3:</strong> Open Instagram and create a new Post or Story, upload your downloaded ID, and paste the caption!</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button id="openInstaBtn" class="btn btn-primary-sm">Open Instagram Web</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/frames.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
