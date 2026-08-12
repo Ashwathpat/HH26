@@ -1253,3 +1253,75 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
   .goa-home .sticker-b { right: 3% !important; }
   .goa-home .sticker-c { right: 8% !important; }
 }
+
+
+/* Final homepage alignment pass */
+.goa-home .home-content {
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin-inline: auto !important;
+  padding-inline: clamp(1.25rem, 4vw, 4rem) !important;
+}
+.goa-home .home-content h2 {
+  width: 100% !important;
+  max-width: 1080px !important;
+  margin: 0 auto !important;
+  font-size: clamp(2.2rem, 6.8vw, 7.6rem) !important;
+  line-height: .9 !important;
+  letter-spacing: -.035em !important;
+  transform: none !important;
+  text-align: center !important;
+}
+.goa-home .home-copy {
+  max-width: 430px !important;
+  margin: 1.45rem auto 1.35rem !important;
+  text-align: center !important;
+}
+.goa-home .home-cta,
+.goa-home .home-hint { display: flex !important; width: fit-content !important; margin-inline: auto !important; }
+.goa-home .home-hint { margin-top: 1rem !important; }
+.goa-home .home-orbit { left: 50% !important; transform: translateX(-50%) rotate(-12deg) !important; }
+.goa-home .home-sun { left: 50% !important; transform: translateX(-50%) !important; }
+.goa-home .orbit-b { transform: translateX(-50%) rotate(-12deg) !important; }
+.goa-home .sticker-a { left: clamp(2rem, 10vw, 10rem) !important; }
+.goa-home .sticker-b { right: clamp(2rem, 10vw, 10rem) !important; }
+@media (max-width: 700px) {
+  .goa-home .home-content { padding-inline: 1rem !important; }
+  .goa-home .home-content h2 { font-size: clamp(2rem, 9vw, 4.6rem) !important; line-height: .94 !important; }
+  .goa-home .sticker-a { left: 1rem !important; }
+  .goa-home .sticker-b { right: 1rem !important; }
+}
+
+
+/* Extra beach atmosphere and headline separation */
+.goa-home .home-content h2,
+.goa-home .home-content h2 span {
+  -webkit-text-stroke: 2px var(--home-ink) !important;
+  paint-order: stroke fill !important;
+}
+.goa-home .home-content h2 span {
+  text-shadow: 5px 5px 0 var(--home-coral) !important;
+}
+.goa-home .pixel-beach { height: 28% !important; }
+.goa-home .pixel-beach::after { height: 30% !important; }
+.goa-home .cloud-d { top: 20% !important; left: -42% !important; transform: scale(.62) !important; animation-duration: 29s !important; animation-delay: -8s !important; }
+.goa-home .cloud-e { top: 38% !important; left: -52% !important; transform: scale(.46) !important; animation-duration: 34s !important; animation-delay: -22s !important; }
+.goa-home .cloud-f { top: 7% !important; left: -64% !important; transform: scale(.34) !important; animation-duration: 42s !important; animation-delay: -34s !important; }
+@media (max-width: 700px) {
+  .goa-home .pixel-beach { height: 25% !important; }
+  .goa-home .home-content h2,
+  .goa-home .home-content h2 span { -webkit-text-stroke-width: 1px !important; }
+}
+
+
+/* Thicker headline outline preview */
+.goa-home .home-content h2,
+.goa-home .home-content h2 span {
+  -webkit-text-stroke: 4px var(--home-ink) !important;
+}
+@media (max-width: 700px) {
+  .goa-home .home-content h2,
+  .goa-home .home-content h2 span {
+    -webkit-text-stroke-width: 2px !important;
+  }
+}
