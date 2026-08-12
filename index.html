@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instant ID Card Generator & Social Share</title>
+  <title>ID Matrix Studio - Instant Smart ID Card & Frame Generator</title>
   <meta name="description" content="Generate high-tech custom ID cards with random frames, unique serial IDs, instant PNG download, and direct X (Twitter), WhatsApp & Instagram sharing." />
   
   <!-- Google Fonts & Font Awesome Icons -->
@@ -12,7 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="src/css/variables.css" />
+  <link rel="stylesheet" href="src/css/layout.css" />
+  <link rel="stylesheet" href="src/css/components.css" />
 </head>
 <body>
   <!-- Header Bar -->
@@ -73,7 +76,7 @@
           <h2>Select Frame Template (10 Styles)</h2>
         </div>
         <div class="frames-grid" id="framesGrid">
-          <!-- 10 Frame Buttons generated dynamically via JS -->
+          <!-- Frame Cards generated dynamically -->
         </div>
       </div>
 
@@ -144,7 +147,7 @@
       </div>
     </section>
 
-    <!-- Right Column: Live ID Preview & Action Actions -->
+    <!-- Right Column: Live ID Preview & Actions -->
     <section class="preview-panel">
       <div class="preview-sticky">
         <div class="preview-card-header">
@@ -202,9 +205,9 @@
       </div>
       <div class="modal-body">
         <ol class="insta-steps">
-          <li><strong>Step 1:</strong> Your ID Card image has been copied / downloaded to your device.</li>
+          <li><strong>Step 1:</strong> Your ID Card image has been downloaded.</li>
           <li><strong>Step 2:</strong> Social caption has been copied to your clipboard.</li>
-          <li><strong>Step 3:</strong> Open Instagram and create a new Post or Story, upload your downloaded ID, and paste the caption!</li>
+          <li><strong>Step 3:</strong> Open Instagram, create a new Post or Story, upload your downloaded ID, and paste the caption!</li>
         </ol>
       </div>
       <div class="modal-footer">
@@ -213,7 +216,7 @@
     </div>
   </div>
 
-  <script src="js/frames.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Entry Script (ES Modules) -->
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>

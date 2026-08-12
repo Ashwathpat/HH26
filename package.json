@@ -1,0 +1,20 @@
+{
+  "name": "id-matrix-studio",
+  "version": "1.0.0",
+  "description": "Instant ID Card Generator with 10 Frame Templates, Unique Serial ID, PNG Download and X.com Instant Share",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "id-card-generator",
+    "canvas",
+    "twitter-share",
+    "x-com",
+    "frame-generator",
+    "mvc-architecture"
+  ],
+  "author": "Ashwathpat",
+  "license": "MIT"
+}
