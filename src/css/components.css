@@ -1386,3 +1386,26 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
   .generator-section .single-frame-preview::before,
   .generator-section .single-frame-preview::after { animation: none; }
 }
+
+
+/* Clean two-line hero lockup */
+.goa-home .home-content h2 .hero-line {
+  display: block !important;
+  width: 100%;
+  white-space: nowrap;
+}
+.goa-home .home-content h2 .hero-line-top {
+  color: var(--home-ink) !important;
+  font-size: .82em;
+  margin-bottom: .09em;
+}
+.goa-home .home-content h2 .hero-line-bottom {
+  color: var(--home-blue) !important;
+  font-size: 1em;
+  -webkit-text-stroke: 4px var(--home-ink) !important;
+  text-shadow: 5px 5px 0 var(--home-coral) !important;
+}
+@media (max-width: 700px) {
+  .goa-home .home-content h2 .hero-line-top { font-size: .78em; }
+  .goa-home .home-content h2 .hero-line-bottom { -webkit-text-stroke-width: 2px !important; }
+}
