@@ -817,3 +817,439 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
 .generator-intro h2, .generator-section .card-header h2, .generator-section .preview-card-header h2 { font-family: "Press Start 2P", monospace !important; letter-spacing: -.05em !important; }
 .generator-intro h2 { font-size: clamp(1.7rem, 4vw, 4rem) !important; line-height: 1.1 !important; }
 .generator-section .frame-card-num, .generator-section .frame-card-status { font-family: "VT323", monospace !important; }
+
+
+/* Shared sticker-book system across every HH26 page */
+.home-transition,
+.generator-section {
+  --theme-carbon: #000000;
+  --theme-paper: #ffffff;
+  --theme-sky: #dceeff;
+  --theme-gray: #cccccc;
+  --theme-mist: #e9e9e9;
+  --theme-blue: #4da2ff;
+  --theme-mint: #55db9c;
+  --theme-lavender: #e9ccff;
+  --theme-ember: #fb4903;
+  --theme-sun: #ffd731;
+  --theme-violet: #5c4ade;
+}
+
+.home-transition {
+  background: var(--theme-gray) !important;
+  color: var(--theme-carbon) !important;
+  border-top: 1px solid var(--theme-carbon);
+  box-shadow: none !important;
+}
+.home-transition::before {
+  background: var(--theme-lavender) !important;
+  opacity: .72 !important;
+}
+.home-transition::after {
+  background: var(--theme-carbon) !important;
+}
+.transition-copy span,
+.transition-copy p {
+  color: var(--theme-carbon) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+}
+.transition-copy strong {
+  color: var(--theme-carbon) !important;
+  text-shadow: none !important;
+}
+.transition-copy strong em {
+  color: var(--theme-violet) !important;
+}
+.transition-chip {
+  background: var(--theme-paper) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  font-family: "Space Grotesk", sans-serif !important;
+}
+
+.generator-section {
+  background: var(--theme-sky) !important;
+  color: var(--theme-carbon) !important;
+  box-shadow: none !important;
+  border-top: 1px solid var(--theme-carbon);
+}
+.generator-section::before,
+.generator-section::after {
+  opacity: .18 !important;
+}
+.generator-section::before {
+  background: var(--theme-mint) !important;
+}
+.generator-section::after {
+  color: var(--theme-carbon) !important;
+}
+.generator-intro {
+  border-bottom: 1px solid var(--theme-carbon) !important;
+}
+.generator-intro span,
+.generator-intro p,
+.generator-section label,
+.generator-section .input-label,
+.generator-section .upload-info,
+.generator-section .canvas-hint,
+.generator-section .share-subtitle {
+  color: var(--theme-carbon) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+}
+.generator-intro h2,
+.generator-section .card-header h2,
+.generator-section .preview-card-header h2,
+.generator-section .share-hub h3 {
+  color: var(--theme-carbon) !important;
+  text-shadow: none !important;
+}
+.generator-intro h2 em {
+  color: var(--theme-blue) !important;
+}
+.generator-section .panel-card,
+.generator-section .share-hub {
+  background: var(--theme-paper) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+}
+.generator-section .panel-card:hover {
+  border-color: var(--theme-carbon) !important;
+}
+.generator-section .card-header,
+.generator-section .preview-card-header {
+  border-color: var(--theme-carbon) !important;
+}
+.generator-section .step-num {
+  background: var(--theme-ember) !important;
+  color: var(--theme-paper) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 50% !important;
+}
+.generator-section .frame-card {
+  background: var(--theme-lavender) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+}
+.generator-section .frame-card.active {
+  background: var(--theme-blue) !important;
+  border-color: var(--theme-carbon) !important;
+  box-shadow: 5px 5px 0 var(--theme-carbon) !important;
+}
+.generator-section .frame-card.locked {
+  background: var(--theme-mist) !important;
+  opacity: .72 !important;
+}
+.generator-section .frame-card-title,
+.generator-section .frame-card-num,
+.generator-section .frame-card-status {
+  color: var(--theme-carbon) !important;
+}
+.generator-section .frame-card.active .frame-card-status {
+  color: var(--theme-carbon) !important;
+}
+.generator-section .frame-upload-slot {
+  background: var(--theme-paper) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+}
+.generator-section input[type="text"],
+.generator-section select,
+.generator-section textarea {
+  background: var(--theme-paper) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 12px !important;
+}
+.generator-section .upload-zone,
+.generator-section #uploadZone {
+  background: var(--theme-mist) !important;
+  color: var(--theme-carbon) !important;
+  border-color: var(--theme-carbon) !important;
+  border-radius: 20px !important;
+}
+.generator-section .preview-card-header .resolution-tag {
+  background: var(--theme-sun) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+}
+.generator-section .canvas-wrapper {
+  background: var(--theme-paper) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+}
+.generator-section .btn-primary-lg,
+.generator-section #downloadBtn {
+  background: var(--theme-carbon) !important;
+  color: var(--theme-paper) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+}
+.generator-section .btn-primary-lg:hover,
+.generator-section #downloadBtn:hover {
+  background: var(--theme-ember) !important;
+}
+.generator-section #copyCaptionBtn,
+.generator-section #resetPhotoBtn,
+.generator-section #randomFrameBtn {
+  background: var(--theme-paper) !important;
+  color: var(--theme-carbon) !important;
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+}
+.generator-section #shareXBtn,
+.generator-section #shareWhatsappBtn,
+.generator-section #shareInstaBtn {
+  border: 1px solid var(--theme-carbon) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+}
+.generator-section #shareXBtn { background: var(--theme-carbon) !important; color: var(--theme-paper) !important; }
+.generator-section #shareWhatsappBtn { background: var(--theme-mint) !important; color: var(--theme-carbon) !important; }
+.generator-section #shareInstaBtn { background: var(--theme-ember) !important; color: var(--theme-paper) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-transition::before,
+  .generator-section::before { animation: none !important; }
+}
+
+@media (max-width: 760px) {
+  .generator-section .panel-card,
+  .generator-section .share-hub { border-radius: 16px !important; }
+}
+
+.theme-sticker-float { animation: sticker-float 5s ease-in-out infinite alternate; }
+@keyframes sticker-float { to { transform: translateY(-8px) rotate(1deg); } }
+
+
+/* Restored mint beach-arcade homepage reference */
+.goa-home {
+  --home-mint: #9be5d4;
+  --home-blue: #4da2ff;
+  --home-ink: #000000;
+  --home-coral: #fb4903;
+  --home-yellow: #ffd731;
+  --home-violet: #5c4ade;
+  background: var(--home-mint) !important;
+  color: var(--home-ink) !important;
+}
+.goa-home::before {
+  opacity: .18 !important;
+  background-image: radial-gradient(rgba(0,0,0,.1) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+  animation: pixel-sky-drift 14s linear infinite !important;
+}
+.goa-home::after {
+  background: var(--home-blue) !important;
+  opacity: .18 !important;
+  animation: home-color-wash 12s ease-in-out infinite alternate !important;
+}
+.goa-home .home-grid { display: none !important; }
+.goa-home .home-topline,
+.goa-home .home-brandline,
+.goa-home .home-footer,
+.goa-home .home-kicker,
+.goa-home .home-copy,
+.goa-home .home-hint,
+.goa-home .home-side-label {
+  color: var(--home-ink) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  text-shadow: none !important;
+}
+.goa-home .home-content {
+  width: min(100%, 1320px) !important;
+  text-align: center !important;
+  animation: home-reference-float 7s ease-in-out infinite alternate !important;
+}
+.goa-home .home-content h2 {
+  color: var(--home-ink) !important;
+  font-family: "Press Start 2P", monospace !important;
+  font-size: clamp(2.8rem, 8.8vw, 9.6rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.075em !important;
+  text-shadow: 7px 7px 0 var(--home-coral) !important;
+}
+.goa-home .home-content h2 span {
+  color: var(--home-blue) !important;
+  text-shadow: 7px 7px 0 var(--home-coral) !important;
+}
+.goa-home .home-kicker { color: var(--home-ink) !important; }
+.goa-home .home-copy {
+  color: var(--home-ink) !important;
+  font-size: clamp(.95rem, 1.5vw, 1.25rem) !important;
+  line-height: 1.2 !important;
+}
+.goa-home .home-cta {
+  background: var(--home-ink) !important;
+  color: var(--home-yellow) !important;
+  border: 1px solid var(--home-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  font-family: "Space Grotesk", sans-serif !important;
+}
+.goa-home .home-cta:hover { background: var(--home-coral) !important; color: #fff !important; }
+.goa-home .home-side-label { font-size: .52rem !important; letter-spacing: .14em !important; }
+.goa-home .home-footer {
+  color: var(--home-ink) !important;
+  border-top: 1px solid var(--home-ink);
+  padding-top: .35rem;
+}
+.goa-home .home-sun {
+  width: min(42vw, 650px) !important;
+  border: 34px solid var(--home-blue) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  opacity: .9 !important;
+  animation: reference-ring-pulse 8s ease-in-out infinite alternate !important;
+}
+.goa-home .home-orbit {
+  width: min(58vw, 860px) !important;
+  height: min(34vw, 480px) !important;
+  border: 22px solid var(--home-blue) !important;
+  border-radius: 50% !important;
+  transform: rotate(-12deg) !important;
+  animation: reference-orbit 18s ease-in-out infinite alternate !important;
+}
+.goa-home .orbit-b {
+  width: min(44vw, 640px) !important;
+  height: min(24vw, 340px) !important;
+  border: 12px solid var(--home-violet) !important;
+  animation-duration: 13s !important;
+}
+.goa-home .home-pixel { color: var(--home-yellow) !important; }
+.goa-home .pixel-b { color: var(--home-coral) !important; }
+.goa-home .preview-sticker {
+  position: absolute;
+  z-index: 7;
+  display: grid;
+  place-items: center;
+  padding: .85rem 1.1rem;
+  border: 1px solid var(--home-ink);
+  border-radius: 18px;
+  font: 700 .68rem "Space Grotesk", sans-serif;
+  letter-spacing: .08em;
+  animation: sticker-float 4s ease-in-out infinite alternate;
+}
+.goa-home .sticker-a { top: 28%; left: 12%; background: var(--home-coral); color: #fff; transform: rotate(-7deg); }
+.goa-home .sticker-b { top: 29%; right: 13%; background: var(--home-yellow); color: var(--home-ink); transform: rotate(8deg); animation-delay: -1.3s; }
+.goa-home .sticker-c { bottom: 22%; right: 23%; background: var(--home-violet); color: #fff; transform: rotate(-4deg); animation-delay: -2s; }
+.goa-home .pixel-beach {
+  position: absolute;
+  inset: auto 0 0;
+  height: 23%;
+  z-index: 2;
+  background: var(--home-blue);
+  border-top: 1px solid var(--home-ink);
+  overflow: hidden;
+}
+.goa-home .pixel-beach::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 16%;
+  background: var(--home-yellow);
+  border-top: 1px solid var(--home-ink);
+}
+.goa-home .pixel-wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 34px;
+  background: #fff;
+  border-top: 3px solid var(--home-ink);
+  clip-path: polygon(0 52%,5% 52%,8% 18%,13% 18%,16% 52%,22% 52%,25% 12%,30% 12%,33% 52%,40% 52%,43% 20%,48% 20%,51% 52%,58% 52%,61% 10%,66% 10%,69% 52%,76% 52%,79% 18%,84% 18%,87% 52%,94% 52%,97% 12%,100% 12%,100% 100%,0 100%);
+  animation: reference-wave-rush 5s linear infinite;
+}
+.goa-home .wave-a { top: 12%; opacity: .96; }
+.goa-home .wave-b { top: 45%; opacity: .65; transform: scale(.84); animation-duration: 7s; animation-delay: -2s; }
+.goa-home .wave-c { top: 69%; opacity: .42; transform: scale(.7); animation-duration: 9s; animation-delay: -4s; }
+.goa-home .pixel-cloud {
+  position: absolute;
+  z-index: 3;
+  width: 112px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid var(--home-ink);
+  box-shadow: 22px -16px 0 -2px #fff, 48px -25px 0 -3px #fff, 70px -10px 0 -1px #fff;
+  image-rendering: pixelated;
+  animation: reference-cloud-drift 24s linear infinite;
+}
+.goa-home .cloud-a { top: 14%; left: -18%; animation-delay: -5s; }
+.goa-home .cloud-b { top: 25%; left: -28%; transform: scale(.7); animation-duration: 31s; animation-delay: -17s; }
+.goa-home .cloud-c { top: 9%; left: -38%; transform: scale(.48); animation-duration: 38s; animation-delay: -28s; }
+.goa-home .pixel-cloud::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 6px; background: var(--home-blue); border-top: 1px solid var(--home-ink); }
+@keyframes pixel-sky-drift { to { background-position: 24px 24px; } }
+@keyframes home-color-wash { to { transform: translateX(3%) scale(1.08); } }
+@keyframes home-reference-float { to { transform: translateY(-5px); } }
+@keyframes reference-ring-pulse { to { transform: scale(1.04); opacity: .7; } }
+@keyframes reference-orbit { to { transform: rotate(-5deg) translate(18px, -8px); } }
+@keyframes reference-wave-rush { 0% { transform: translateX(-3%) scaleY(.92); } 50% { transform: translateX(3%) scaleY(1.08); } 100% { transform: translateX(-3%) scaleY(.92); } }
+@keyframes reference-cloud-drift { from { left: -28%; } to { left: 110%; } }
+@media (max-width: 700px) {
+  .goa-home .home-content h2 { font-size: clamp(2.3rem, 12vw, 5rem) !important; }
+  .goa-home .preview-sticker { font-size: .5rem; padding: .6rem .75rem; }
+  .goa-home .sticker-a { left: 4%; }
+  .goa-home .sticker-b { right: 4%; }
+  .goa-home .sticker-c { right: 10%; }
+  .goa-home .pixel-beach { height: 20%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .goa-home::before, .goa-home::after, .goa-home .home-content, .goa-home .home-sun, .goa-home .home-orbit, .goa-home .preview-sticker, .goa-home .pixel-wave, .goa-home .pixel-cloud { animation: none !important; }
+}
+
+
+/* Mint homepage cleanup pass */
+.goa-home .home-content {
+  width: min(100%, 1180px) !important;
+  padding-inline: clamp(.75rem, 3vw, 2rem) !important;
+  animation: none !important;
+}
+.goa-home .home-content h2 {
+  width: 100% !important;
+  max-width: 1120px !important;
+  margin-inline: auto !important;
+  font-size: clamp(2.5rem, 7.6vw, 8.3rem) !important;
+  line-height: .86 !important;
+  letter-spacing: -.045em !important;
+  transform: scaleX(.94) !important;
+  transform-origin: center !important;
+  text-shadow: 5px 5px 0 var(--home-coral) !important;
+}
+.goa-home .home-content h2 span { text-shadow: 5px 5px 0 var(--home-coral) !important; }
+.goa-home .home-kicker {
+  position: relative;
+  z-index: 8;
+  margin-bottom: .8rem !important;
+  letter-spacing: .16em !important;
+}
+.goa-home .home-copy {
+  position: relative;
+  z-index: 8;
+  max-width: 460px !important;
+  margin: 1.35rem auto 1.45rem !important;
+}
+.goa-home .home-cta { position: relative; z-index: 8; }
+.goa-home .home-hint { position: relative; z-index: 8; margin-top: 1.1rem !important; }
+.goa-home .sticker-a { top: 27% !important; left: clamp(3%, 10vw, 12%) !important; }
+.goa-home .sticker-b { top: 27% !important; right: clamp(3%, 10vw, 12%) !important; }
+.goa-home .sticker-c { bottom: 23% !important; right: clamp(16%, 24vw, 27%) !important; }
+.goa-home .home-sun { opacity: .62 !important; }
+.goa-home .home-orbit { opacity: .82 !important; }
+.goa-home .orbit-b { opacity: .7 !important; }
+.goa-home .pixel-cloud { opacity: .88 !important; }
+@media (max-width: 700px) {
+  .goa-home .home-content h2 { font-size: clamp(2.15rem, 10.5vw, 5rem) !important; transform: none !important; }
+  .goa-home .home-copy { max-width: 330px !important; }
+  .goa-home .sticker-a { left: 3% !important; }
+  .goa-home .sticker-b { right: 3% !important; }
+  .goa-home .sticker-c { right: 8% !important; }
+}
