@@ -4,16 +4,16 @@
 export class FrameModel {
   constructor() {
     this.slots = [
-      { id: 1, name: 'Cyberpunk Neon', color: '#06b6d4', image: null },
-      { id: 2, name: 'VIP Gold Spec', color: '#f59e0b', image: null },
-      { id: 3, name: 'Deep Space', color: '#8b5cf6', image: null },
-      { id: 4, name: 'Matrix Tech', color: '#10b981', image: null },
-      { id: 5, name: 'Sleek Dark', color: '#64748b', image: null },
-      { id: 6, name: 'Synthwave 80s', color: '#ec4899', image: null },
-      { id: 7, name: 'Glassmorphism', color: '#3b82f6', image: null },
-      { id: 8, name: 'Quantum Shield', color: '#0284c7', image: null },
-      { id: 9, name: 'Executive Platinum', color: '#e2e8f0', image: null },
-      { id: 10, name: 'Tactical Spec', color: '#84cc16', image: null }
+      { id: 1, name: 'Goa Signal', color: '#b9dc38', image: null, available: true },
+      { id: 2, name: 'Template Pending', color: '#f59e0b', image: null, available: false },
+      { id: 3, name: 'Template Pending', color: '#8b5cf6', image: null, available: false },
+      { id: 4, name: 'Template Pending', color: '#10b981', image: null, available: false },
+      { id: 5, name: 'Template Pending', color: '#64748b', image: null, available: false },
+      { id: 6, name: 'Template Pending', color: '#ec4899', image: null, available: false },
+      { id: 7, name: 'Template Pending', color: '#3b82f6', image: null, available: false },
+      { id: 8, name: 'Template Pending', color: '#0284c7', image: null, available: false },
+      { id: 9, name: 'Template Pending', color: '#e2e8f0', image: null, available: false },
+      { id: 10, name: 'Template Pending', color: '#84cc16', image: null, available: false },
     ];
     this.activeFrameId = 1;
   }

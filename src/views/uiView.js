@@ -18,15 +18,20 @@ export class UIView {
     
     frameModel.slots.forEach(slot => {
       const card = document.createElement('div');
-      card.className = `frame-card ${slot.id === frameModel.activeFrameId ? 'active' : ''}`;
+      const isAvailable = slot.available !== false;
+      card.className = `frame-card ${slot.id === frameModel.activeFrameId ? 'active' : ''} ${isAvailable ? '' : 'locked'}`;
       card.dataset.id = slot.id;
-      
+      card.setAttribute('aria-disabled', String(!isAvailable));
+
       card.innerHTML = `
-        <div class="frame-card-num">FRAME ${slot.id}</div>
+        <div class="frame-card-num">FRAME ${String(slot.id).padStart(2, '0')}</div>
         <div class="frame-card-title">${slot.name}</div>
+        <div class="frame-card-status">${isAvailable ? 'LIVE TEMPLATE' : 'COMING SOON'}</div>
       `;
 
-      card.addEventListener('click', () => onSelectFrame(slot.id));
+      if (isAvailable) {
+        card.addEventListener('click', () => onSelectFrame(slot.id));
+      }
       this.framesGrid.appendChild(card);
     });
 
