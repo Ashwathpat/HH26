@@ -46,11 +46,11 @@
         </div>
         
         <div class="upload-zone" id="uploadZone">
-          <input type="file" id="photoInput" accept="image/*" class="file-input-hidden" />
+          <input type="file" id="photoInput" accept="image/*,heic,heif" class="file-input-hidden" />
           <div class="upload-content">
             <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
             <p class="upload-title">Drag & drop photo here or <span>Browse</span></p>
-            <p class="upload-hint">Supports JPG, PNG, WEBP (Auto-cropped & frame fitted)</p>
+            <p class="upload-hint">Supports JPG, PNG, WEBP, HEIC/HEIF (Auto-cropped & frame fitted)</p>
           </div>
         </div>
 
@@ -217,6 +217,7 @@
   </div>
 
   <!-- Entry Script (ES Modules) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js"></script>
   <script type="module" src="src/main.js"></script>
 </body>
 </html>
