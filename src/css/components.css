@@ -652,3 +652,36 @@ input[type="text"]:focus, select:focus, textarea:focus {
 .goa-home + .app-header .subtitle { color: var(--goa-lime); }
 .goa-home + .app-header .live-pill { background: rgba(63,143,42,.18); border-color: rgba(185,220,56,.32); color: var(--goa-lime); }
 .goa-home + .app-header .pulse-dot { background: var(--goa-yellow); box-shadow: 0 0 10px var(--goa-yellow); }
+
+/* Coherent HHG26 generator rebuild */
+body { background: #06140f; color: var(--goa-cream, #fff1cf); }
+.goa-home + .app-header { position: relative; top: auto; padding: 1rem clamp(1rem, 4vw, 4rem); }
+.goa-home + .app-header .logo-container { gap: .8rem; }
+.goa-home + .app-header .logo-badge { width: 42px; height: 42px; border-radius: 3px; }
+.goa-home + .app-header h1 { font-family: "Press Start 2P", var(--font-main); font-size: clamp(.75rem, 1.7vw, 1.15rem); letter-spacing: -.04em; }
+.goa-home + .app-header .subtitle { font-family: "VT323", var(--font-main); font-size: 1.1rem; }
+.generator-section { max-width: 1440px; padding: 2.6rem clamp(1rem, 4vw, 4rem) 5rem; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: 2.2rem; }
+.generator-section::after { content: 'BUILD YOUR PASS // CHOOSE YOUR FRAME // MAKE IT YOURS'; position: absolute; top: .8rem; left: clamp(1rem, 4vw, 4rem); color: var(--goa-yellow); font: .55rem var(--font-mono); letter-spacing: .16em; opacity: .72; }
+.generator-section .panel-card, .generator-section .share-hub { border: 1px solid rgba(185,220,56,.32); border-radius: 4px; background: rgba(6,20,15,.72); box-shadow: 8px 8px 0 rgba(3,10,7,.65); }
+.generator-section .panel-card:hover { border-color: var(--goa-yellow); transform: translateY(-2px); }
+.generator-section .card-header { border-bottom: 1px solid rgba(185,220,56,.2); padding-bottom: .85rem; }
+.generator-section .card-header h2, .generator-section .preview-card-header h2 { font-family: "Press Start 2P", var(--font-main); font-size: clamp(.7rem, 1.3vw, .95rem); letter-spacing: -.04em; }
+.generator-section .step-num { width: 30px; height: 30px; border-radius: 2px; background: var(--goa-yellow); color: var(--goa-void); font-family: "Press Start 2P", var(--font-main); font-size: .65rem; }
+.generator-section .frames-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; }
+.generator-section .frame-card { aspect-ratio: 1.28; border-radius: 3px; border: 1px solid rgba(185,220,56,.3); background: linear-gradient(145deg, rgba(63,143,42,.18), rgba(6,20,15,.65)); }
+.generator-section .frame-card:hover { border-color: var(--goa-yellow); background: rgba(242,195,50,.12); transform: translateY(-3px); }
+.generator-section .frame-card.active { border: 2px solid var(--goa-yellow); box-shadow: 4px 4px 0 var(--goa-coral); background: rgba(242,195,50,.16); }
+.generator-section .frame-card-num { font-family: "Press Start 2P", var(--font-main); font-size: .62rem; color: var(--goa-yellow); }
+.generator-section .frame-card-title { font-family: "VT323", var(--font-main); font-size: 1rem; color: var(--goa-cream); }
+.generator-section .frame-upload-slot { grid-column: 1 / -1; border-radius: 3px; border-color: rgba(185,220,56,.32); color: var(--goa-lime); }
+.generator-section input[type="text"], .generator-section select, .generator-section textarea { border-color: rgba(185,220,56,.3); background: rgba(0,0,0,.24); color: var(--goa-cream); }
+.generator-section input[type="text"]:focus, .generator-section select:focus, .generator-section textarea:focus { border-color: var(--goa-yellow); box-shadow: 0 0 0 2px rgba(242,195,50,.12); }
+.generator-section .preview-card-header { padding-bottom: .7rem; border-bottom: 1px solid rgba(185,220,56,.2); }
+.generator-section .canvas-wrapper { border: 2px solid var(--goa-green); border-radius: 4px; box-shadow: 6px 6px 0 rgba(3,10,7,.75); }
+.generator-section .canvas-hint { color: var(--goa-lime); background: rgba(6,20,15,.9); font-family: "VT323", var(--font-main); font-size: 1rem; }
+.generator-section .btn-primary-lg { border-radius: 3px; border: 2px solid var(--goa-cream); font-family: "Press Start 2P", var(--font-main); font-size: .72rem; }
+.generator-section .share-hub h3 { font-family: "Press Start 2P", var(--font-main); font-size: .76rem; }
+.generator-section .share-subtitle { color: var(--goa-lime); font-family: "VT323", var(--font-main); font-size: 1.05rem; }
+@media (max-width: 1024px) { .generator-section { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .generator-section .frames-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .generator-section::after { font-size: .45rem; } }
+@media (prefers-reduced-motion: reduce) { .generator-section .panel-card:hover, .generator-section .frame-card:hover { transform: none; } }
