@@ -28,11 +28,7 @@ export class IdCardController {
   init() {
     this.uiView.updateInputsFromModel(this.model);
 
-    this.uiView.renderFramesGrid(
-      this.frameModel,
-      (frameId) => this.frameController.selectFrame(frameId),
-      (file) => this.frameController.handleCustomFrameUpload(file)
-    );
+    this.uiView.renderFramesGrid(this.frameModel);
 
     this.model.userImage.onload = () => {
       this.model.imageLoaded = true;
@@ -68,16 +64,6 @@ export class IdCardController {
   }
 
   onStateChange(options = {}) {
-    if (options.newPhotoUploaded) {
-      // Auto-assign random frame template on initial upload
-      const randomFrameId = this.frameModel.getRandomFrameId();
-      this.frameModel.setActiveFrame(randomFrameId);
-      this.uiView.renderFramesGrid(
-        this.frameModel,
-        (frameId) => this.frameController.selectFrame(frameId),
-        (file) => this.frameController.handleCustomFrameUpload(file)
-      );
-    }
     this.render();
   }
 

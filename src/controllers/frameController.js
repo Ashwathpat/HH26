@@ -1,53 +1,31 @@
 import { showToast } from '../utils/toast.js';
 
 /**
- * Frame Controller - Handles frame slot selection & custom frame uploads
+ * Frame Controller - Keeps HHG26 on its single canonical beach pass.
  */
 export class FrameController {
   constructor(frameModel, uiView, renderCallback) {
     this.frameModel = frameModel;
     this.uiView = uiView;
     this.renderCallback = renderCallback;
-
     this.randomFrameBtn = document.getElementById('randomFrameBtn');
     this.initEvents();
   }
 
   initEvents() {
-    this.randomFrameBtn.addEventListener('click', () => {
-      const randomId = this.frameModel.getRandomFrameId();
-      this.selectFrame(randomId);
-      showToast(`Assigned Frame #${randomId}!`);
-    });
+    if (!this.randomFrameBtn) return;
+    this.randomFrameBtn.textContent = 'Live Beach Pass';
+    this.randomFrameBtn.disabled = true;
+    this.randomFrameBtn.setAttribute('aria-disabled', 'true');
   }
 
-  selectFrame(id) {
-    this.frameModel.setActiveFrame(id);
-    this.uiView.renderFramesGrid(
-      this.frameModel,
-      (frameId) => this.selectFrame(frameId),
-      (file) => this.handleCustomFrameUpload(file)
-    );
+  selectFrame() {
+    this.frameModel.setActiveFrame(1);
+    this.uiView.renderFramesGrid(this.frameModel);
     this.renderCallback();
   }
 
-  handleCustomFrameUpload(file) {
-    if (!file.type.startsWith('image/')) {
-      showToast('Please select a valid image file (PNG/SVG).');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        const activeId = this.frameModel.activeFrameId;
-        this.frameModel.setSlotImage(activeId, img);
-        showToast(`Custom Frame Overlay loaded into Frame #${activeId}!`);
-        this.renderCallback();
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+  handleCustomFrameUpload() {
+    showToast('HHG26 uses one canonical beach pass.');
   }
 }

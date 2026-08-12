@@ -126,7 +126,7 @@ export class PhotoController {
         this.model.resetPhotoPosition();
         this.zoomSlider.value = 1;
         this.renderCallback({ newPhotoUploaded: true });
-        showToast('Photo uploaded & Random Frame assigned!');
+        showToast('Photo uploaded to the HHG26 Beach Pass!');
       };
       img.onerror = () => {
         showToast('Failed to load this image. Please try another file.');

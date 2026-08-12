@@ -1,5 +1,5 @@
 /**
- * UI View - Handles DOM elements binding and Frame Grid rendering
+ * UI View - Handles DOM elements binding and the single live frame presentation.
  */
 export class UIView {
   constructor() {
@@ -13,44 +13,23 @@ export class UIView {
     this.captionBox = document.getElementById('captionBox');
   }
 
-  renderFramesGrid(frameModel, onSelectFrame, onCustomFrameUpload) {
-    this.framesGrid.innerHTML = '';
-    
-    frameModel.slots.forEach(slot => {
-      const card = document.createElement('div');
-      const isAvailable = slot.available !== false;
-      card.className = `frame-card ${slot.id === frameModel.activeFrameId ? 'active' : ''} ${isAvailable ? '' : 'locked'}`;
-      card.dataset.id = slot.id;
-      card.setAttribute('aria-disabled', String(!isAvailable));
-
-      card.innerHTML = `
-        <div class="frame-card-num">FRAME ${String(slot.id).padStart(2, '0')}</div>
-        <div class="frame-card-title">${slot.name}</div>
-        <div class="frame-card-status">${isAvailable ? 'LIVE TEMPLATE' : 'COMING SOON'}</div>
-      `;
-
-      if (isAvailable) {
-        card.addEventListener('click', () => onSelectFrame(slot.id));
-      }
-      this.framesGrid.appendChild(card);
-    });
-
-    // Add Custom Frame Upload Slot
-    const customSlot = document.createElement('div');
-    customSlot.className = 'frame-upload-slot';
-    customSlot.innerHTML = `
-      <label for="frameOverlayInput" style="cursor:pointer; font-size:0.75rem; color:var(--accent-cyan); display:flex; align-items:center; justify-content:center; gap:0.4rem;">
-        <i class="fa-solid fa-file-image"></i> Upload Custom Frame PNG/SVG
-      </label>
-      <input type="file" id="frameOverlayInput" accept="image/*" style="display:none;" />
+  renderFramesGrid(frameModel) {
+    const frame = frameModel.getActiveFrame();
+    this.framesGrid.innerHTML = `
+      <div class="single-frame-card active" aria-label="HHG26 Beach Pass live frame">
+        <div class="single-frame-preview" aria-hidden="true">
+          <span class="single-frame-wave"></span>
+          <span class="single-frame-sun"></span>
+          <span class="single-frame-palm">✦</span>
+        </div>
+        <div class="single-frame-copy">
+          <div class="frame-card-num">LIVE PASS</div>
+          <div class="frame-card-title">${frame.name}</div>
+          <div class="frame-card-status">YOUR ONE CANONICAL FRAME</div>
+          <p>Upload your photo and make this beach pass yours.</p>
+        </div>
+      </div>
     `;
-    this.framesGrid.appendChild(customSlot);
-
-    document.getElementById('frameOverlayInput').addEventListener('change', (e) => {
-      if (e.target.files.length > 0) {
-        onCustomFrameUpload(e.target.files[0]);
-      }
-    });
   }
 
   updateInputsFromModel(model) {

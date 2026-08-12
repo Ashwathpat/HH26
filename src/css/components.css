@@ -1325,3 +1325,64 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
     -webkit-text-stroke-width: 2px !important;
   }
 }
+
+
+/* Single canonical HHG26 beach pass */
+.generator-section .single-frame-panel .frames-grid {
+  display: block !important;
+}
+.generator-section .single-frame-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+  align-items: stretch;
+  min-height: 170px;
+  padding: .8rem;
+  border: 2px solid #000;
+  border-radius: 18px;
+  background: #a8e7d5;
+  box-shadow: 6px 6px 0 #000;
+  color: #000;
+}
+.generator-section .single-frame-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 145px;
+  border: 2px solid #000;
+  border-radius: 12px;
+  background: linear-gradient(#9be5d4 0 55%, #4da2ff 55% 78%, #ffd731 78%);
+}
+.generator-section .single-frame-preview::before,
+.generator-section .single-frame-preview::after {
+  content: '';
+  position: absolute;
+  left: -12%;
+  width: 124%;
+  height: 18px;
+  background: #fff;
+  border-top: 2px solid #000;
+  clip-path: polygon(0 45%, 10% 45%, 15% 0, 22% 45%, 33% 45%, 40% 5%, 48% 45%, 61% 45%, 68% 2%, 76% 45%, 88% 45%, 95% 0, 100% 0, 100% 100%, 0 100%);
+  animation: single-pass-wave 4s ease-in-out infinite;
+}
+.generator-section .single-frame-preview::before { top: 57%; }
+.generator-section .single-frame-preview::after { top: 73%; opacity: .65; animation-delay: -1.5s; }
+.generator-section .single-frame-wave { position: absolute; width: 95px; height: 10px; left: 25%; top: 37%; background: #4da2ff; border: 2px solid #000; border-radius: 50%; transform: rotate(-8deg); }
+.generator-section .single-frame-sun { position: absolute; width: 38px; height: 38px; right: 15%; top: 18%; border: 2px solid #000; border-radius: 50%; background: #ffd731; }
+.generator-section .single-frame-palm { position: absolute; left: 12%; top: 20%; color: #3f8f2a; font-size: 2.4rem; transform: rotate(-18deg); }
+.generator-section .single-frame-copy { display: flex; flex-direction: column; justify-content: center; padding: .6rem .8rem; }
+.generator-section .single-frame-copy .frame-card-num { color: #000 !important; font: 700 .62rem "Press Start 2P", monospace; letter-spacing: .04em; }
+.generator-section .single-frame-copy .frame-card-title { margin-top: .65rem; color: #000 !important; font: 700 clamp(1.1rem, 2vw, 1.8rem) "Press Start 2P", monospace; line-height: 1.15; }
+.generator-section .single-frame-copy .frame-card-status { margin-top: .55rem; color: #d36245; font: 700 .62rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
+.generator-section .single-frame-copy p { margin: .65rem 0 0; color: #000; font: 1rem/1.2 "Space Grotesk", sans-serif; }
+.generator-section .pass-lock-note { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .7rem; border: 1px solid #000; border-radius: 999px; background: #a8e7d5; color: #000; font: 700 .58rem "Space Grotesk", sans-serif; letter-spacing: .05em; }
+.generator-section .pass-lock-note i { color: #d36245; }
+.generator-section .generator-intro p { max-width: 34rem; }
+@keyframes single-pass-wave { 50% { transform: translateX(2%) scaleY(1.15); } }
+@media (max-width: 640px) {
+  .generator-section .single-frame-card { grid-template-columns: 1fr; }
+  .generator-section .single-frame-preview { min-height: 125px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .generator-section .single-frame-preview::before,
+  .generator-section .single-frame-preview::after { animation: none; }
+}

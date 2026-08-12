@@ -39,8 +39,8 @@ export class IdCardModel {
       `💼 Role: ${this.roleTitle || 'Specialist'}\n` +
       `🏢 Org: ${this.orgName || 'NEXUS'}\n` +
       `🔑 Unique Serial ID: ${this.uniqueId}\n` +
-      `🎨 Frame Theme: #${activeFrame.id} ${activeFrame.name}\n\n` +
-      `Generated instantly via ID Matrix Studio! 🚀\n` +
+      `🏖️ Pass: ${activeFrame.name}\n\n` +
+      `Generated instantly via HHG26 Beach Pass Studio! 🚀\n` +
       `#IDCard #VerifiedBadge #DigitalIdentity #TechID`;
   }
 }
