@@ -18,6 +18,34 @@
   <link rel="stylesheet" href="src/css/components.css" />
 </head>
 <body>
+  <section class="goa-home" id="home">
+    <div class="home-grid"></div>
+    <div class="home-sun"></div>
+    <div class="home-orbit orbit-a"></div>
+    <div class="home-orbit orbit-b"></div>
+    <div class="home-pixel pixel-a">✦</div>
+    <div class="home-pixel pixel-b">◆</div>
+    <div class="home-pixel pixel-c">✦</div>
+    <div class="home-topline">HHG26 // GOA, INDIA // 16—18 MAY</div>
+    <div class="home-brandline"><span>HACKER HOUSE</span><i>/</i><span>BEACH ARCADE FOR BIG IDEAS</span></div>
+    <div class="signal-marquee home-marquee" aria-label="HHG26 Goa India Build Loud Make Something Real">
+      <div class="marquee-track" id="marqueeTrack">
+        <span class="marquee-group" id="marqueePrimary"></span>
+        <span class="marquee-group" id="marqueeClone" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="home-content">
+      <p class="home-kicker">INSERT COIN · ENTER THE HOUSE</p>
+      <h2>WELCOME TO<br><span>HACKER HOUSE</span></h2>
+      <p class="home-copy">A beachside build weekend for curious people, brave ideas, and one very good reset.</p>
+      <a class="home-cta" href="#generator">GET YOUR PASS <b>↗</b></a>
+      <span class="home-hint">SCROLL TO ENTER THE HOUSE ↓</span>
+    </div>
+    <div class="home-side-label label-left">CODE · CREATE · CONNECT</div>
+    <div class="home-side-label label-right">BEACH · BUILD · MAKE</div>
+    <div class="home-footer"><span>PLAYER 01</span><span>GOA 2026</span><span>LIVE SYSTEM</span></div>
+  </section>
+
   <!-- Header Bar -->
   <header class="app-header">
     <div class="logo-container">
@@ -34,16 +62,8 @@
     </div>
   </header>
 
-  <!-- Animated signal line: each letter mutates its typeface independently. -->
-  <div class="signal-marquee" aria-label="HHG26 Goa India Build Loud Make Something Real">
-    <div class="marquee-track" id="marqueeTrack">
-      <span class="marquee-group" id="marqueePrimary"></span>
-      <span class="marquee-group" id="marqueeClone" aria-hidden="true"></span>
-    </div>
-  </div>
-
   <!-- Main Content Layout -->
-  <main class="app-container">
+  <main class="app-container generator-section" id="generator">
     <!-- Left Column: Controls & Inputs -->
     <section class="controls-panel">
       <!-- Step 1: Upload Photo -->

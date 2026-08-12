@@ -553,3 +553,102 @@ input[type="text"]:focus, select:focus, textarea:focus {
   .marquee-track { animation: none; transform: translateX(0); }
   .marquee-letter { transition: none; }
 }
+
+/* HH26 Goa arcade home */
+.goa-home {
+  --goa-void: #06140f;
+  --goa-green: #3f8f2a;
+  --goa-lime: #b9dc38;
+  --goa-yellow: #f2c332;
+  --goa-cream: #fff1cf;
+  --goa-coral: #d36245;
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  padding: 8rem 2rem 5rem;
+  color: var(--goa-cream);
+  background: radial-gradient(circle at 50% 48%, rgba(29, 115, 116, .28), transparent 34%), var(--goa-void);
+}
+.goa-home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .32;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 4px);
+  animation: home-scan 9s linear infinite;
+}
+.goa-home::after {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  z-index: -2;
+  background: conic-gradient(from 0deg, transparent, rgba(63,143,42,.1), transparent 28%, rgba(242,195,50,.08), transparent 48%);
+  animation: home-aurora 18s linear infinite;
+}
+.home-grid { position: absolute; inset: 0; z-index: -1; opacity: .28; background-image: linear-gradient(rgba(185,220,56,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(185,220,56,.22) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to bottom, black, transparent 92%); }
+.home-topline, .home-brandline, .home-footer { position: absolute; z-index: 4; color: var(--goa-yellow); font: .62rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.home-topline { top: 6.8rem; left: clamp(1.25rem, 5vw, 5rem); }
+.home-brandline { top: 6.8rem; right: clamp(1.25rem, 5vw, 5rem); display: flex; gap: .6rem; color: var(--goa-lime); }
+.home-brandline i { color: var(--goa-coral); font-style: normal; }
+.home-marquee { position: absolute; top: 9rem; left: 0; right: 0; z-index: 5; border-color: rgba(185,220,56,.22); background: rgba(6,20,15,.38); }
+.home-marquee .marquee-group { min-height: 1.7rem; font-size: .56rem; letter-spacing: .12em; }
+.home-marquee .marquee-track { animation-duration: 26s; }
+.home-content { position: relative; z-index: 6; width: min(100%, 980px); text-align: center; animation: home-float 6s ease-in-out infinite alternate; }
+.home-kicker { margin: 0 0 1.2rem; color: var(--goa-yellow); font: .64rem var(--font-mono); letter-spacing: .2em; }
+.home-content h2 { margin: 0; color: var(--goa-cream); font: clamp(2.4rem, 8vw, 7rem)/.98 "Press Start 2P", var(--font-main); letter-spacing: -.09em; text-shadow: .08em .08em 0 var(--goa-coral); }
+.home-content h2 span { color: var(--goa-yellow); }
+.home-copy { width: min(100%, 500px); margin: 2rem auto; color: var(--goa-lime); font: 1.2rem/1.05 "VT323", var(--font-main); letter-spacing: .03em; }
+.home-cta { display: inline-flex; gap: .8rem; align-items: center; padding: 1rem 1.25rem; color: var(--goa-void); background: var(--goa-yellow); border: 2px solid var(--goa-cream); box-shadow: 6px 6px 0 var(--goa-green); font: .65rem "Press Start 2P", var(--font-main); text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+.home-cta:hover { color: var(--goa-void); background: var(--goa-cream); transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--goa-green); }
+.home-cta b { color: var(--goa-coral); }
+.home-hint { display: block; margin-top: 1.8rem; color: var(--goa-cream); font: .65rem var(--font-mono); letter-spacing: .08em; animation: home-hint 2s ease-in-out infinite; }
+.home-side-label { position: absolute; z-index: 4; top: 52%; color: var(--goa-lime); font: .58rem var(--font-mono); letter-spacing: .12em; opacity: .76; }
+.label-left { left: 5vw; transform: rotate(-90deg); transform-origin: left center; }
+.label-right { right: 5vw; transform: rotate(90deg); transform-origin: right center; }
+.home-footer { bottom: 1.8rem; left: 5vw; right: 5vw; display: flex; justify-content: space-between; color: var(--goa-lime); }
+.home-sun { position: absolute; z-index: 0; width: min(33vw, 330px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(242,195,50,.27), rgba(242,195,50,.05) 52%, transparent 69%); animation: sun-pulse 5s ease-in-out infinite; }
+.home-orbit { position: absolute; z-index: 1; width: min(45vw, 520px); aspect-ratio: 1; border: 1px dashed rgba(185,220,56,.38); border-radius: 50%; animation: orbit-spin 22s linear infinite; }
+.orbit-b { width: min(31vw, 360px); border-color: rgba(211,98,69,.45); animation-duration: 14s; animation-direction: reverse; }
+.home-pixel { position: absolute; z-index: 2; color: var(--goa-yellow); font: 1rem "Press Start 2P"; animation: pixel-drift 4s ease-in-out infinite alternate; }
+.pixel-a { top: 32%; left: 24%; }.pixel-b { top: 36%; right: 25%; color: var(--goa-coral); animation-delay: -1s; }.pixel-c { bottom: 25%; left: 29%; animation-delay: -2s; }
+.generator-section { position: relative; background: linear-gradient(180deg, #0a1a14 0%, #10241b 100%); }
+.generator-section::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .16; background: radial-gradient(circle at 20% 18%, var(--goa-coral), transparent 24%), radial-gradient(circle at 80% 75%, var(--goa-green), transparent 28%); animation: generator-breathe 12s ease-in-out infinite alternate; }
+.generator-section > * { position: relative; z-index: 1; }
+.generator-section .panel-card, .generator-section .share-hub { border-color: rgba(185,220,56,.28); background: rgba(14, 30, 23, .88); }
+.generator-section .card-header h2, .generator-section .preview-card-header h2 { color: var(--goa-cream); }
+.generator-section .step-num { background: var(--goa-green); color: var(--goa-void); }
+.generator-section .btn-primary-lg { background: linear-gradient(135deg, var(--goa-yellow), var(--goa-coral)); color: var(--goa-void); box-shadow: 0 4px 18px rgba(242,195,50,.3); }
+.generator-section .btn-accent-sm { background: var(--goa-green); color: var(--goa-cream); }
+.generator-section .resolution-tag, .generator-section .frame-card-num, .generator-section .btn-link { color: var(--goa-yellow); }
+.generator-section .frame-card.active { border-color: var(--goa-yellow); box-shadow: 0 0 16px rgba(242,195,50,.35); background: rgba(242,195,50,.12); }
+@keyframes home-scan { to { transform: translateY(18px); } }
+@keyframes home-aurora { to { transform: rotate(360deg); } }
+@keyframes home-float { to { transform: translateY(-8px); } }
+@keyframes home-hint { 50% { transform: translateY(-4px); opacity: .6; } }
+@keyframes sun-pulse { 50% { transform: scale(1.08); opacity: .74; } }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes pixel-drift { to { transform: translate(10px, -14px) rotate(90deg); opacity: .48; } }
+@keyframes generator-breathe { to { transform: scale(1.12); opacity: .28; } }
+@media (max-width: 700px) {
+  .goa-home { min-height: 92svh; padding-inline: 1rem; }
+  .home-topline { left: 1rem; top: 5.5rem; font-size: .48rem; }
+  .home-brandline { right: 1rem; top: 7rem; font-size: .48rem; }
+  .home-marquee { top: 9rem; }
+  .home-content h2 { font-size: clamp(2rem, 10vw, 4rem); }
+  .home-side-label { display: none; }
+  .home-footer { left: 1rem; right: 1rem; font-size: .48rem; }
+  .home-orbit { width: 75vw; }.orbit-b { width: 55vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .goa-home::before, .goa-home::after, .home-content, .home-hint, .home-sun, .home-orbit, .home-pixel, .generator-section::before { animation: none; }
+}
+.goa-home + .app-header { background: rgba(6, 20, 15, .94); border-bottom-color: rgba(185,220,56,.3); }
+.goa-home + .app-header .logo-badge { background: linear-gradient(135deg, var(--goa-yellow), var(--goa-coral)); color: var(--goa-void); box-shadow: 0 0 18px rgba(242,195,50,.22); }
+.goa-home + .app-header h1 { background: linear-gradient(90deg, var(--goa-cream), var(--goa-yellow)); -webkit-background-clip: text; }
+.goa-home + .app-header .subtitle { color: var(--goa-lime); }
+.goa-home + .app-header .live-pill { background: rgba(63,143,42,.18); border-color: rgba(185,220,56,.32); color: var(--goa-lime); }
+.goa-home + .app-header .pulse-dot { background: var(--goa-yellow); box-shadow: 0 0 10px var(--goa-yellow); }
