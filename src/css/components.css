@@ -1587,3 +1587,187 @@ body { background: #06140f; color: var(--goa-cream, #fff1cf); }
 .goa-home .home-topline { left: var(--hh-gutter) !important; right: auto !important; }
 .goa-home .home-brandline { left: auto !important; right: var(--hh-gutter) !important; }
 .goa-home .home-footer { left: var(--hh-gutter) !important; right: var(--hh-gutter) !important; }
+
+
+/* Responsive reliability pass: desktop, tablet, portrait phone, and landscape phone */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+.goa-home,
+.home-transition,
+.generator-section,
+.app-header {
+  max-width: 100%;
+}
+.goa-home .home-content,
+.goa-home .home-content h2,
+.generator-section,
+.generator-intro,
+.controls-panel,
+.preview-panel,
+.panel-card,
+.share-hub,
+.single-frame-card,
+.canvas-wrapper {
+  min-width: 0 !important;
+}
+.goa-home .home-content h2 .hero-line { max-width: 100%; }
+.goa-home .home-brandline,
+.goa-home .home-topline,
+.goa-home .home-footer { overflow: hidden; }
+.goa-home .home-brandline span,
+.goa-home .home-topline,
+.goa-home .home-footer span { white-space: nowrap; }
+.generator-section { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
+.controls-panel,
+.preview-panel { min-width: 0 !important; }
+.generator-section .preview-sticky { min-width: 0; }
+.generator-section canvas { display: block; width: 100%; height: auto; max-width: 100%; }
+.generator-section .canvas-wrapper { width: 100%; max-width: 100%; }
+.generator-section .form-row { min-width: 0; }
+.generator-section .form-group { min-width: 0; }
+.generator-section input,
+.generator-section select,
+.generator-section textarea { max-width: 100%; }
+.generator-section .btn-group-sm { flex-wrap: wrap; }
+.generator-section .pass-lock-note { max-width: 100%; white-space: nowrap; }
+.generator-section .share-buttons { display: flex; flex-wrap: wrap; }
+.generator-section .share-buttons > * { flex: 1 1 9rem; min-width: 0; }
+
+@media (max-width: 1100px) {
+  .app-header { padding-inline: var(--hh-gutter) !important; }
+  .generator-section { grid-template-columns: minmax(0, 1fr) !important; }
+  .generator-section .preview-sticky { position: static !important; }
+  .generator-section .preview-panel { order: -1; }
+  .generator-intro { grid-column: 1 !important; }
+}
+
+@media (max-width: 760px) {
+  .app-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    padding: .85rem 1rem !important;
+  }
+  .app-header .logo-container { min-width: 0; flex: 1 1 15rem; gap: .65rem; }
+  .app-header .logo-badge { flex: 0 0 38px; width: 38px !important; height: 38px !important; }
+  .app-header h1 { font-size: .72rem !important; line-height: 1.1; }
+  .app-header .subtitle { font-size: .88rem !important; }
+  .header-status { flex: 0 0 auto; }
+  .live-pill { font-size: .66rem; padding: .3rem .55rem; }
+
+  .goa-home { min-height: 100svh !important; padding: 6.5rem 1rem 3.5rem !important; }
+  .goa-home .home-topline,
+  .goa-home .home-brandline { top: 4.8rem !important; font-size: .42rem !important; letter-spacing: .08em !important; }
+  .goa-home .home-brandline { max-width: 46vw; gap: .3rem; }
+  .goa-home .home-brandline span:last-child { max-width: 27vw; overflow: hidden; text-overflow: ellipsis; }
+  .goa-home .home-content { width: 100% !important; padding: 0 !important; }
+  .goa-home .home-kicker { font-size: .5rem !important; letter-spacing: .08em !important; margin-bottom: .9rem !important; }
+  .goa-home .home-content h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(1.45rem, 8.3vw, 4.3rem) !important;
+    line-height: .96 !important;
+    letter-spacing: -.055em !important;
+  }
+  .goa-home .home-content h2 .hero-line-top { font-size: .8em; margin-bottom: .16em; }
+  .goa-home .home-content h2 .hero-line-bottom { font-size: 1em; -webkit-text-stroke-width: 2px !important; }
+  .goa-home .home-copy { max-width: min(90vw, 340px) !important; margin: 1rem auto 1.1rem !important; font-size: 1rem !important; }
+  .goa-home .home-cta { font-size: .55rem !important; padding: .8rem 1rem !important; }
+  .goa-home .home-hint { font-size: .5rem !important; }
+  .goa-home .home-side-label { display: none !important; }
+  .goa-home .home-sun { width: 78vw !important; border-width: 18px !important; }
+  .goa-home .home-orbit { width: 110vw !important; height: 60vw !important; border-width: 13px !important; }
+  .goa-home .orbit-b { width: 82vw !important; height: 44vw !important; border-width: 8px !important; }
+  .goa-home .pixel-a { left: 10% !important; top: 32% !important; }
+  .goa-home .pixel-b { right: 10% !important; top: 37% !important; }
+  .goa-home .pixel-c { left: 15% !important; bottom: 24% !important; }
+  .goa-home .preview-sticker { padding: .5rem .65rem !important; border-radius: 12px !important; font-size: .46rem !important; }
+  .goa-home .sticker-a { top: 24% !important; left: 1rem !important; }
+  .goa-home .sticker-b { top: 24% !important; right: 1rem !important; }
+  .goa-home .sticker-c { bottom: 25% !important; right: 1rem !important; }
+  .goa-home .pixel-beach { height: 24% !important; }
+  .goa-home .pixel-wave { height: 22px; }
+  .goa-home .pixel-cloud { transform: scale(.55) !important; }
+  .goa-home .cloud-d,
+  .goa-home .cloud-e,
+  .goa-home .cloud-f { display: none; }
+  .goa-home .home-footer { bottom: 1rem !important; font-size: .42rem !important; }
+
+  .home-transition { min-height: 540px !important; padding: 4.5rem 1rem 3rem !important; border-radius: 20px 20px 0 0 !important; }
+  .home-transition .transition-copy { width: 100% !important; }
+  .home-transition .transition-copy strong { font-size: clamp(1.25rem, 8vw, 3.2rem) !important; line-height: 1 !important; }
+  .home-transition .transition-copy p { max-width: 28ch; font-size: .78rem; }
+  .home-transition .transition-chip { right: 1rem !important; bottom: 1.25rem !important; font-size: .52rem; }
+
+  .generator-section { padding: 2.5rem 1rem 3rem !important; gap: 1rem !important; }
+  .generator-intro { min-height: 0 !important; padding-bottom: 1.5rem !important; gap: .8rem !important; }
+  .generator-intro span { font-size: .52rem !important; }
+  .generator-intro h2 { font-size: clamp(1.6rem, 9vw, 3.6rem) !important; line-height: 1 !important; }
+  .generator-intro p { max-width: 34ch !important; font-size: .78rem; }
+  .generator-section .panel-card,
+  .generator-section .share-hub { padding: 1rem !important; border-radius: 14px !important; box-shadow: 4px 4px 0 var(--hh-ink) !important; }
+  .generator-section .card-header { gap: .55rem; }
+  .generator-section .card-header h2,
+  .generator-section .preview-card-header h2 { font-size: .75rem !important; line-height: 1.2; }
+  .generator-section .step-num { flex: 0 0 28px; width: 28px !important; height: 28px !important; font-size: .65rem; }
+  .generator-section .upload-zone { min-height: 135px; padding: 1.2rem .8rem; }
+  .generator-section .upload-title { font-size: .8rem; }
+  .generator-section .upload-hint { font-size: .62rem; line-height: 1.25; }
+  .generator-section .btn-group-sm { gap: .45rem; }
+  .generator-section .btn-group-sm > * { flex: 1 1 auto; }
+  .generator-section .pass-lock-note { justify-content: center; font-size: .5rem; padding-inline: .5rem; }
+  .generator-section .single-frame-card { grid-template-columns: 1fr !important; gap: .75rem; padding: .6rem; border-radius: 14px; box-shadow: 4px 4px 0 #000; }
+  .generator-section .single-frame-preview { min-height: 125px; }
+  .generator-section .single-frame-copy { padding: .35rem .45rem .55rem; }
+  .generator-section .single-frame-copy .frame-card-title { font-size: 1rem; }
+  .generator-section .single-frame-copy p { font-size: .82rem; }
+  .generator-section .form-row { grid-template-columns: minmax(0,1fr) !important; gap: .75rem; }
+  .generator-section .details-form { gap: .75rem; }
+  .generator-section .form-group label { font-size: .7rem; }
+  .generator-section input[type="text"],
+  .generator-section select,
+  .generator-section textarea { min-height: 42px; font-size: .85rem; }
+  .generator-section .preview-card-header { flex-wrap: wrap; }
+  .generator-section .resolution-tag { margin-left: auto; font-size: .5rem; }
+  .generator-section .canvas-hint { font-size: .72rem; }
+  .generator-section .btn-primary-lg,
+  .generator-section #downloadBtn { min-height: 48px; font-size: .62rem; }
+  .generator-section .share-buttons { gap: .5rem !important; }
+  .generator-section .share-buttons > * { flex: 1 1 100%; }
+}
+
+@media (max-width: 380px) {
+  .goa-home .home-brandline { max-width: 38vw; }
+  .goa-home .home-brandline span:first-child,
+  .goa-home .home-brandline i { display: none; }
+  .goa-home .home-content h2 { font-size: clamp(1.25rem, 7.4vw, 2.7rem) !important; }
+  .goa-home .home-content h2 .hero-line-bottom { -webkit-text-stroke-width: 1px !important; }
+  .goa-home .preview-sticker { font-size: .4rem !important; }
+  .goa-home .sticker-a { left: .5rem !important; }
+  .goa-home .sticker-b { right: .5rem !important; }
+  .goa-home .home-copy { font-size: .9rem !important; }
+  .generator-section .panel-card,
+  .generator-section .share-hub { padding: .8rem !important; }
+}
+
+@media (orientation: landscape) and (max-height: 620px) {
+  .goa-home { min-height: 100svh !important; padding-top: 4.2rem !important; padding-bottom: 2.2rem !important; }
+  .goa-home .home-topline,
+  .goa-home .home-brandline { top: 2.8rem !important; }
+  .goa-home .home-content h2 { font-size: clamp(1.7rem, 7vw, 4.5rem) !important; }
+  .goa-home .home-copy { margin-block: .65rem !important; font-size: .9rem !important; }
+  .goa-home .pixel-beach { height: 20% !important; }
+  .goa-home .home-footer { bottom: .65rem !important; }
+  .home-transition { min-height: 420px !important; }
+  .generator-section { padding-top: 2rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .generator-section .panel-card:hover,
+  .generator-section #downloadBtn:hover,
+  .generator-section .btn-primary-lg:hover { transform: none !important; }
+}

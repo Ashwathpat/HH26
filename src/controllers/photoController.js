@@ -55,24 +55,34 @@ export class PhotoController {
       this.renderCallback();
     });
 
-    // Canvas Mouse Panning
-    this.canvas.addEventListener('mousedown', (e) => {
+    // Canvas pointer panning: works for mouse, touch, and pen input.
+    this.canvas.style.touchAction = 'none';
+    this.canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
       this.isDragging = true;
+      this.canvas.setPointerCapture?.(e.pointerId);
       const rect = this.canvas.getBoundingClientRect();
       this.dragStart.x = e.clientX - rect.left - this.model.photoOffset.x;
       this.dragStart.y = e.clientY - rect.top - this.model.photoOffset.y;
     });
 
-    window.addEventListener('mousemove', (e) => {
+    this.canvas.addEventListener('pointermove', (e) => {
       if (!this.isDragging) return;
+      e.preventDefault();
       const rect = this.canvas.getBoundingClientRect();
       this.model.photoOffset.x = e.clientX - rect.left - this.dragStart.x;
       this.model.photoOffset.y = e.clientY - rect.top - this.dragStart.y;
       this.renderCallback();
     });
 
-    window.addEventListener('mouseup', () => {
+    const stopDragging = (e) => {
       this.isDragging = false;
+      if (e?.pointerId !== undefined) this.canvas.releasePointerCapture?.(e.pointerId);
+    };
+    this.canvas.addEventListener('pointerup', stopDragging);
+    this.canvas.addEventListener('pointercancel', stopDragging);
+    this.canvas.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'mouse') stopDragging(e);
     });
   }
 
