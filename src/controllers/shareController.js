@@ -35,7 +35,17 @@ export class ShareController {
     });
 
     this.shareXBtn.addEventListener('click', async () => {
-      // Open X synchronously so mobile browsers do not treat it as a blocked popup.
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      // On phones, the native share sheet passes the actual PNG file to X so
+      // the selected X post already has the Beach Pass attached.
+      if (isMobile) {
+        const shared = await this.sharePassFile('Post your HHG26 Beach Pass to X');
+        if (shared) return;
+      }
+
+      // Desktop browsers and devices without file-sharing support keep the X
+      // composer plus a local PNG download fallback.
       window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(this.getCaption())}`, '_blank', 'noopener,noreferrer');
       await this.downloadPass(false, false);
       showToast('X opened — attach your downloaded Beach Pass to the post.');
