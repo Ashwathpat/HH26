@@ -76,10 +76,21 @@
   <main class="app-container generator-section" id="generator"><div class="generator-intro"><span>02 / PASS CONFIGURATOR</span><h2>Make your<br><em>beach pass.</em></h2><p>One official HHG26 frame. Add your photo, details, and make it yours.</p></div>
     <!-- Left Column: Controls & Inputs -->
     <section class="controls-panel">
-      <!-- Step 1: Upload Photo -->
-      <div class="panel-card">
+      <!-- Step 1: The one live HHG26 frame -->
+      <div class="panel-card single-frame-panel">
         <div class="card-header">
           <div class="step-num">1</div>
+          <h2>Your HHG26 Frame</h2>
+        </div>
+        <div class="frames-grid" id="framesGrid">
+          <!-- Frame Cards generated dynamically -->
+        </div>
+      </div>
+
+      <!-- Step 2: Upload Photo -->
+      <div class="panel-card">
+        <div class="card-header">
+          <div class="step-num">2</div>
           <h2>Upload Your Photo</h2>
         </div>
         
@@ -102,17 +113,6 @@
             </button>
             <span class="pass-lock-note"><i class="fa-solid fa-sparkles"></i> HHG26 BEACH PASS</span>
           </div>
-        </div>
-      </div>
-
-      <!-- Step 2: The one live HHG26 frame -->
-      <div class="panel-card single-frame-panel">
-        <div class="card-header">
-          <div class="step-num">2</div>
-          <h2>Your HHG26 Frame</h2>
-        </div>
-        <div class="frames-grid" id="framesGrid">
-          <!-- Frame Cards generated dynamically -->
         </div>
       </div>
 
