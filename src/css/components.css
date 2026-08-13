@@ -1899,3 +1899,114 @@ body::before {
     transform: none !important;
   }
 }
+
+
+/* User-monitor correction: at ultrawide widths the 1408px lockup sits 84px right of the visible viewport center. */
+@media (min-width: 1760px) {
+  .goa-home .home-content {
+    transform: translateX(-84px) !important;
+  }
+}
+
+
+/* Viewport-native desktop centering: all hero text is centered in the actual visible browser width. */
+@media (min-width: 761px) {
+  .goa-home .home-content {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100vw !important;
+    max-width: none !important;
+    padding-inline: 0 !important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+  .goa-home .home-content h2 {
+    position: static !important;
+    left: auto !important;
+    width: max-content !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  .goa-home .home-content h2 .hero-line {
+    width: max-content !important;
+    margin-inline: 0 !important;
+  }
+}
+
+
+/* Unified desktop title lockup: center the short first line inside the width of the complete wordmark. */
+@media (min-width: 761px) {
+  .goa-home .home-content h2 {
+    display: grid !important;
+    grid-template-columns: max-content !important;
+    justify-items: center !important;
+  }
+  .goa-home .home-content h2 .hero-line {
+    justify-self: center !important;
+  }
+}
+
+
+/* Final desktop axis: use the hero’s real left/right edges, never the viewport-width unit. */
+@media (min-width: 761px) {
+  .goa-home .home-content {
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+
+/* Compact wordmark + stable full-screen page handoff. */
+.goa-home .home-content h2 .hero-line-bottom {
+  word-spacing: -.48em !important;
+}
+html,
+body {
+  background: #dceeff !important;
+}
+.home-transition {
+  min-height: 100svh !important;
+  width: 100% !important;
+  margin: 0 !important;
+  isolation: isolate;
+  background: var(--hh-lavender, #e9ccff) !important;
+  overflow: clip !important;
+}
+.home-transition::before {
+  opacity: 1 !important;
+}
+.home-transition + .app-header,
+.generator-section {
+  width: 100% !important;
+  margin-inline: 0 !important;
+}
+@media (max-width: 760px) {
+  .home-transition {
+    min-height: 100svh !important;
+    border-radius: 22px 22px 0 0 !important;
+  }
+}
+
+
+/* Keep the next page's content anchored near the rising edge, not vertically adrift in the panel. */
+.home-transition {
+  display: block !important;
+  padding-top: clamp(5rem, 10vh, 8rem) !important;
+}
+.home-transition .transition-copy {
+  margin: 0 auto !important;
+}
+@media (max-width: 760px) {
+  .home-transition {
+    padding: 4.75rem 1rem 3rem !important;
+  }
+  .home-transition .transition-copy strong {
+    margin-top: 1.25rem !important;
+  }
+}
