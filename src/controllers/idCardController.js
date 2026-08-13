@@ -42,9 +42,7 @@ export class IdCardController {
     const inputs = [
       this.uiView.fullNameInput,
       this.uiView.roleTitleInput,
-      this.uiView.orgNameInput,
-      this.uiView.clearanceLevelInput,
-      this.uiView.issueDateInput
+      this.uiView.orgNameInput
     ];
 
     inputs.forEach(input => {
@@ -54,13 +52,6 @@ export class IdCardController {
       });
     });
 
-    // New Unique ID Generator Button
-    document.getElementById('regenerateIdBtn').addEventListener('click', () => {
-      const newId = this.model.regenerateUniqueId();
-      this.uiView.uniqueIdInput.value = newId;
-      this.render();
-      showToast('New Unique Serial ID generated!');
-    });
   }
 
   onStateChange(options = {}) {

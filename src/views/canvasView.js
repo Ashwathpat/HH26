@@ -14,7 +14,7 @@ export class CanvasView {
       this.frameLoaded = true;
       if (this.lastRender) this.render(this.lastRender.model, this.lastRender.frameModel);
     };
-    this.frameImage.src = '/assets/frames/hhg26-beach-pass.png';
+    this.frameImage.src = '/assets/frames/hhg26-final-ticket.webp';
     this.frameLoaded = false;
   }
 
@@ -39,7 +39,7 @@ export class CanvasView {
   drawPhoto(ctx, model) {
     if (!model.imageLoaded || !model.userImage.complete) return;
 
-    const photoBox = { x: 905, y: 40, width: 248, height: 205 };
+    const photoBox = { x: 888, y: 27, width: 255, height: 250 };
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(photoBox.x, photoBox.y, photoBox.width, photoBox.height, 22);
@@ -70,17 +70,16 @@ export class CanvasView {
   }
 
   drawDetails(ctx, model) {
-    const panelX = 918;
-    const valueX = 940;
-    const valueWidth = 220;
-    const mint = '#a8e7d5';
+    const panelX = 862;
+    const valueX = 888;
+    const valueWidth = 298;
+    const mint = '#b6e9d7';
     const ink = '#050505';
 
     const fields = [
-      { value: model.fullName || 'YOUR NAME', y: 315 },
-      { value: model.orgName || 'TEAM NAME', y: 365 },
-      { value: model.issueDate || 'DD/MM/YYYY', y: 418 },
-      { value: model.uniqueId || 'BUILDER ID', y: 470 },
+      { value: model.fullName || 'NAME', y: 326 },
+      { value: model.roleTitle || 'ROLE', y: 390 },
+      { value: model.orgName || 'TEAM', y: 453 },
     ];
 
     ctx.save();
@@ -97,11 +96,7 @@ export class CanvasView {
       ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), valueWidth - 14), valueX, field.y + 1);
     });
 
-    ctx.fillStyle = '#4da2ff';
-    ctx.fillRect(905, 665, 250, 20);
-    ctx.fillStyle = ink;
-    ctx.font = '700 12px "Space Grotesk", sans-serif';
-    ctx.fillText('HHG26 / BEACH PASS', 922, 679);
+
     ctx.restore();
   }
 

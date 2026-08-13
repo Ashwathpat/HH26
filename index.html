@@ -116,55 +116,29 @@
         </div>
       </div>
 
-      <!-- Step 3: Edit Details -->
+      <!-- Step 3: Ticket Details -->
       <div class="panel-card">
         <div class="card-header">
           <div class="step-num">3</div>
-          <h2>ID Details</h2>
-          <button id="regenerateIdBtn" class="btn-link" title="Generate New Unique ID">
-            <i class="fa-solid fa-arrows-rotate"></i> New Unique ID
-          </button>
+          <h2>Ticket Details</h2>
         </div>
 
         <form class="details-form" onsubmit="event.preventDefault();">
           <div class="form-row">
             <div class="form-group">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" value="Alex Vance" placeholder="Enter Full Name" />
+              <label for="fullName">Name</label>
+              <input type="text" id="fullName" value="Alex Vance" placeholder="Enter your name" />
             </div>
             <div class="form-group">
-              <label for="roleTitle">Role / Designation</label>
-              <input type="text" id="roleTitle" value="Senior Cyber Architect" placeholder="e.g. Lead Developer" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="orgName">Organization / Squad</label>
-              <input type="text" id="orgName" value="NEXUS LABS ALPHA" placeholder="Organization Name" />
-            </div>
-            <div class="form-group">
-              <label for="clearanceLevel">Clearance Level</label>
-              <select id="clearanceLevel">
-                <option value="LEVEL 05 - OMNI">LEVEL 05 - OMNI ACCESS</option>
-                <option value="VIP EXECUTIVE">VIP EXECUTIVE</option>
-                <option value="CORE DEVELOPER">CORE DEVELOPER</option>
-                <option value="SPECIAL OPERATIVE">SPECIAL OPERATIVE</option>
-              </select>
+              <label for="roleTitle">Role</label>
+              <input type="text" id="roleTitle" value="Builder" placeholder="e.g. Builder" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="uniqueId">Unique Serial ID (Auto-Generated)</label>
-              <div class="input-with-badge">
-                <input type="text" id="uniqueId" readonly />
-                <span class="badge-tag">UNIQUE</span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="issueDate">Issue Date</label>
-              <input type="text" id="issueDate" value="2026-08-12" />
+              <label for="orgName">Team</label>
+              <input type="text" id="orgName" value="Team AAA" placeholder="Enter your team" />
             </div>
           </div>
         </form>

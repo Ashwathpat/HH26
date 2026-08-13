@@ -7,9 +7,6 @@ export class UIView {
     this.fullNameInput = document.getElementById('fullName');
     this.roleTitleInput = document.getElementById('roleTitle');
     this.orgNameInput = document.getElementById('orgName');
-    this.clearanceLevelInput = document.getElementById('clearanceLevel');
-    this.uniqueIdInput = document.getElementById('uniqueId');
-    this.issueDateInput = document.getElementById('issueDate');
     this.captionBox = document.getElementById('captionBox');
   }
 
@@ -36,17 +33,12 @@ export class UIView {
     this.fullNameInput.value = model.fullName;
     this.roleTitleInput.value = model.roleTitle;
     this.orgNameInput.value = model.orgName;
-    this.clearanceLevelInput.value = model.clearanceLevel;
-    this.uniqueIdInput.value = model.uniqueId;
-    this.issueDateInput.value = model.issueDate;
   }
 
   updateModelFromInputs(model) {
     model.fullName = this.fullNameInput.value;
     model.roleTitle = this.roleTitleInput.value;
     model.orgName = this.orgNameInput.value;
-    model.clearanceLevel = this.clearanceLevelInput.value;
-    model.issueDate = this.issueDateInput.value;
   }
 
   updateCaption(text) {
