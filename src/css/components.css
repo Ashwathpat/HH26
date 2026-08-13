@@ -1854,3 +1854,48 @@ body::before {
     white-space: nowrap !important;
   }
 }
+
+
+/* Large-screen optical centering: center the intrinsic pixel headline, not a constrained text box. */
+@media (min-width: 761px) {
+  .goa-home .home-content {
+    display: grid !important;
+    justify-items: center !important;
+    align-items: center !important;
+  }
+  .goa-home .home-content h2 {
+    width: max-content !important;
+    max-width: none !important;
+    justify-self: center !important;
+    margin-inline: auto !important;
+    white-space: nowrap !important;
+  }
+  .goa-home .home-content h2 .hero-line {
+    width: max-content !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 761px) {
+  .goa-home .home-content h2 {
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Only shift the lockup once its intrinsic width exceeds the desktop content rail. */
+@media (min-width: 761px) and (max-width: 1499px) {
+  .goa-home .home-content h2 {
+    left: auto !important;
+    transform: none !important;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1759px) {
+  .goa-home .home-content h2 {
+    left: auto !important;
+    transform: none !important;
+  }
+}
