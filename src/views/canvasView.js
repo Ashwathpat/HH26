@@ -39,7 +39,7 @@ export class CanvasView {
   drawPhoto(ctx, model) {
     if (!model.imageLoaded || !model.userImage.complete) return;
 
-    const photoBox = { x: 888, y: 27, width: 255, height: 250 };
+    const photoBox = { x: 882, y: 20, width: 270, height: 264 };
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(photoBox.x, photoBox.y, photoBox.width, photoBox.height, 22);
@@ -88,8 +88,7 @@ export class CanvasView {
       ctx.fillStyle = mint;
       ctx.fillRect(field.x, field.y, field.width, field.height);
       ctx.fillStyle = ink;
-      ctx.font = '700 14px "Press Start 2P", monospace';
-      ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), field.width - 10), field.x + field.width / 2, field.y + field.height / 2 + 1);
+      this.drawAdaptiveText(ctx, field.value, field.width - 10, field.x + field.width / 2, field.y + field.height / 2 + 1);
     });
 
     // Exact Builder ID coordinates supplied for the text below the barcode.
@@ -100,6 +99,27 @@ export class CanvasView {
     ctx.font = '700 11px "Press Start 2P", monospace';
     ctx.fillText(this.fitText(ctx, builderId, 118), 1095, 705);
     ctx.restore();
+  }
+
+  drawAdaptiveText(ctx, text, maxWidth, x, y) {
+    const value = String(text || '').toUpperCase();
+    let fontSize = 14;
+
+    while (fontSize > 6) {
+      ctx.font = `700 ${fontSize}px "Press Start 2P", monospace`;
+      if (ctx.measureText(value).width <= maxWidth) {
+        ctx.fillText(value, x, y);
+        return;
+      }
+      fontSize -= 1;
+    }
+
+    ctx.font = '700 6px "Press Start 2P", monospace';
+    let output = value;
+    while (ctx.measureText(output).width > maxWidth && output.length > 4) {
+      output = `${output.slice(0, -1)}…`;
+    }
+    ctx.fillText(output, x, y);
   }
 
   fitText(ctx, text, maxWidth) {
