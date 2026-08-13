@@ -1771,3 +1771,86 @@ body {
   .generator-section #downloadBtn:hover,
   .generator-section .btn-primary-lg:hover { transform: none !important; }
 }
+
+
+/* Corrected rising-page transition and true hero centering */
+body {
+  display: block !important;
+}
+.goa-home {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 0 !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  display: grid !important;
+  place-items: center !important;
+}
+.goa-home .home-content {
+  position: relative !important;
+  justify-self: center !important;
+  align-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  transform: none !important;
+}
+.goa-home .home-content h2,
+.goa-home .home-content h2 .hero-line,
+.goa-home .home-kicker,
+.goa-home .home-copy,
+.goa-home .home-hint {
+  text-align: center !important;
+}
+.goa-home .home-content h2 .hero-line {
+  margin-inline: auto !important;
+  transform: none !important;
+}
+.home-transition {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 0 !important;
+}
+.home-transition + .app-header,
+.generator-section {
+  position: relative !important;
+  z-index: 4 !important;
+}
+@media (max-width: 760px) {
+  .goa-home {
+    height: 100svh !important;
+    min-height: 100svh !important;
+  }
+  .goa-home .home-content { width: min(calc(100% - 2rem), 390px) !important; }
+}
+
+/* A scrolling body becomes the sticky element's containing scroll box; keep clipping on html instead. */
+html { overflow-x: clip !important; }
+body { overflow: visible !important; }
+
+/* Fixed hero + spacer is resilient across browsers: every following page rises over the homepage. */
+body::before {
+  content: '';
+  display: block;
+  height: 100svh;
+  pointer-events: none;
+}
+.goa-home {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+}
+
+@media (max-width: 480px) {
+  .goa-home .home-content h2 {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+    font-size: clamp(1.25rem, 7.2vw, 2.15rem) !important;
+    letter-spacing: -.07em !important;
+  }
+  .goa-home .home-content h2 .hero-line {
+    width: 100% !important;
+    white-space: nowrap !important;
+  }
+}
