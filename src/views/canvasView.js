@@ -70,7 +70,7 @@ export class CanvasView {
   }
 
   drawDetails(ctx, model) {
-    const mint = '#b6e9d7';
+    const mint = '#a8f1b2';
     const blue = '#69b5f7';
     const ink = '#050505';
 
@@ -88,7 +88,7 @@ export class CanvasView {
       ctx.fillStyle = mint;
       ctx.fillRect(field.x, field.y, field.width, field.height);
       ctx.fillStyle = ink;
-      ctx.font = '700 9px "Press Start 2P", monospace';
+      ctx.font = '700 12px "Press Start 2P", monospace';
       ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), field.width - 10), field.x + field.width / 2, field.y + field.height / 2 + 1);
     });
 
