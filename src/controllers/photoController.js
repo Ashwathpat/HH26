@@ -16,6 +16,7 @@ export class PhotoController {
 
     this.isDragging = false;
     this.dragStart = { x: 0, y: 0 };
+    this.photoBox = { x: 882, y: 20, width: 270, height: 264 };
 
     this.initEvents();
   }
@@ -58,20 +59,22 @@ export class PhotoController {
     // Canvas pointer panning: works for mouse, touch, and pen input.
     this.canvas.style.touchAction = 'none';
     this.canvas.addEventListener('pointerdown', (e) => {
+      const point = this.getCanvasPoint(e);
+      if (!this.isInsidePhotoBox(point)) return;
+
       e.preventDefault();
       this.isDragging = true;
       this.canvas.setPointerCapture?.(e.pointerId);
-      const rect = this.canvas.getBoundingClientRect();
-      this.dragStart.x = e.clientX - rect.left - this.model.photoOffset.x;
-      this.dragStart.y = e.clientY - rect.top - this.model.photoOffset.y;
+      this.dragStart.x = point.x - this.model.photoOffset.x;
+      this.dragStart.y = point.y - this.model.photoOffset.y;
     });
 
     this.canvas.addEventListener('pointermove', (e) => {
       if (!this.isDragging) return;
       e.preventDefault();
-      const rect = this.canvas.getBoundingClientRect();
-      this.model.photoOffset.x = e.clientX - rect.left - this.dragStart.x;
-      this.model.photoOffset.y = e.clientY - rect.top - this.dragStart.y;
+      const point = this.getCanvasPoint(e);
+      this.model.photoOffset.x = point.x - this.dragStart.x;
+      this.model.photoOffset.y = point.y - this.dragStart.y;
       this.renderCallback();
     });
 
@@ -84,6 +87,23 @@ export class PhotoController {
     this.canvas.addEventListener('pointerleave', (e) => {
       if (e.pointerType === 'mouse') stopDragging(e);
     });
+  }
+
+  getCanvasPoint(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    return {
+      x: (e.clientX - rect.left) * (this.canvas.width / rect.width),
+      y: (e.clientY - rect.top) * (this.canvas.height / rect.height),
+    };
+  }
+
+  isInsidePhotoBox(point) {
+    return (
+      point.x >= this.photoBox.x &&
+      point.x <= this.photoBox.x + this.photoBox.width &&
+      point.y >= this.photoBox.y &&
+      point.y <= this.photoBox.y + this.photoBox.height
+    );
   }
 
   isHeicFile(file) {

@@ -34,12 +34,14 @@ export class IdCardModel {
   }
 
   generateCaption() {
+    const website = `${window.location.origin}${window.location.pathname}`;
     return `I’m participating in Hacker House Goa ’26!\n\n` +
       `Name: ${this.fullName || 'Builder'}\n` +
       `Role: ${this.roleTitle || 'Participant'}\n` +
       `Team: ${this.orgName || 'Team AAA'}\n\n` +
+      `Get your pass: ${website}\n` +
       `See you at the beach arcade. Code, create, connect.\n\n` +
       `Created with Team AAA.\n` +
-      `#HackerHouseGoa #HHG26 #BuildInGoa`;
+      `#HackerHouseGoa #HHG26 #BuildInGoa #FrameInGoa`;
   }
 }
