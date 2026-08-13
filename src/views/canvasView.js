@@ -70,33 +70,36 @@ export class CanvasView {
   }
 
   drawDetails(ctx, model) {
-    const panelX = 862;
-    const valueX = 888;
-    const valueWidth = 298;
+    const panelX = 856;
+    const valueWidth = 307;
     const mint = '#b6e9d7';
+    const blue = '#69b5f7';
     const ink = '#050505';
 
     const fields = [
       { value: model.fullName || 'NAME', y: 326 },
-      { value: model.roleTitle || 'ROLE', y: 390 },
-      { value: model.orgName || 'TEAM', y: 453 },
+      { value: model.roleTitle || 'ROLE', y: 389 },
+      { value: model.orgName || 'TEAM', y: 452 },
     ];
 
     ctx.save();
-    ctx.font = '700 16px "Press Start 2P", monospace';
     ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
     fields.forEach((field) => {
+      // Cover only the original placeholder lettering, keeping the ticket-slot outlines intact.
       ctx.fillStyle = mint;
-      ctx.fillRect(panelX, field.y - 14, valueWidth, 29);
-      ctx.strokeStyle = ink;
-      ctx.lineWidth = 2;
-      ctx.strokeRect(panelX, field.y - 14, valueWidth, 29);
+      ctx.fillRect(panelX, field.y - 18, valueWidth, 36);
       ctx.fillStyle = ink;
-      ctx.font = '700 13px "Press Start 2P", monospace';
-      ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), valueWidth - 14), valueX, field.y + 1);
+      ctx.font = '700 12px "Press Start 2P", monospace';
+      ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), valueWidth - 22), panelX + valueWidth / 2, field.y + 1);
     });
 
-
+    // The final ticket template reserves this exact zone below the barcode for a unique Builder ID.
+    ctx.fillStyle = blue;
+    ctx.fillRect(855, 704, 310, 46);
+    ctx.fillStyle = ink;
+    ctx.font = '700 10px "Press Start 2P", monospace';
+    ctx.fillText(`BUILDER ID: ${(model.uniqueId || 'HHG26-0000').replace('ID-', '')}`, 1010, 725);
     ctx.restore();
   }
 
