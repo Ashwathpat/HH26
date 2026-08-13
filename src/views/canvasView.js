@@ -97,7 +97,7 @@ export class CanvasView {
     ctx.fillStyle = blue;
     ctx.fillRect(1032, 695, 126, 19);
     ctx.fillStyle = ink;
-    ctx.font = '700 8px "Press Start 2P", monospace';
+    ctx.font = '700 11px "Press Start 2P", monospace';
     ctx.fillText(this.fitText(ctx, builderId, 118), 1095, 705);
     ctx.restore();
   }
