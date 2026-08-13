@@ -2010,3 +2010,26 @@ body {
     margin-top: 1.25rem !important;
   }
 }
+
+
+/* Full-width configurator page: background fills the viewport while the cards stay on a centered content rail. */
+.home-transition {
+  min-height: clamp(360px, 52svh, 560px) !important;
+  padding-top: clamp(3.75rem, 7vh, 5rem) !important;
+  padding-bottom: 2.5rem !important;
+}
+.generator-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-inline: max(var(--hh-gutter), calc((100% - var(--hh-max)) / 2)) !important;
+}
+@media (max-width: 760px) {
+  .home-transition {
+    min-height: 48svh !important;
+    padding: 3.5rem 1rem 2rem !important;
+  }
+  .generator-section {
+    padding-inline: 1rem !important;
+  }
+}
