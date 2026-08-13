@@ -4278,3 +4278,23 @@ body {
     padding-inline: 1rem !important;
   }
 }
+
+/* Mobile configurator intro: keep its title directly under the section label. */
+@media (max-width: 760px) {
+  .generator-intro {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: start !important;
+    align-items: start !important;
+    text-align: left !important;
+  }
+  .generator-intro span,
+  .generator-intro h2,
+  .generator-intro p {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  .generator-intro h2 {
+    margin-top: .3rem !important;
+  }
+}

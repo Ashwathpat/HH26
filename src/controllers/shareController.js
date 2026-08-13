@@ -121,6 +121,19 @@ export class ShareController {
       }
 
       const objectUrl = URL.createObjectURL(file);
+      const isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      // Safari on iPhone/iPad often ignores anchor downloads. Opening the PNG
+      // lets the user use the system Share menu to save it to Photos or Files.
+      if (isAppleMobile) {
+        const imageWindow = window.open(objectUrl, '_blank');
+        if (imageWindow) {
+          window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+          if (notify) showToast('Pass opened — tap Share, then Save Image or Save to Files.');
+          return true;
+        }
+      }
+
       const link = document.createElement('a');
       link.href = objectUrl;
       link.download = file.name;
