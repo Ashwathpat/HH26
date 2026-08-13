@@ -35,12 +35,10 @@ export class ShareController {
     });
 
     this.shareXBtn.addEventListener('click', async () => {
-      const shared = await this.sharePassFile('Share your HHG26 Beach Pass');
-      if (shared) return;
-
-      await this.downloadPass(false, false);
+      // Open X synchronously so mobile browsers do not treat it as a blocked popup.
       window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(this.getCaption())}`, '_blank', 'noopener,noreferrer');
-      showToast('Pass downloaded — attach it to your X post.');
+      await this.downloadPass(false, false);
+      showToast('X opened — attach your downloaded Beach Pass to the post.');
     });
 
     this.shareWhatsappBtn.addEventListener('click', async () => {
@@ -53,9 +51,8 @@ export class ShareController {
     });
 
     this.shareInstaBtn.addEventListener('click', async () => {
-      const shared = await this.sharePassFile('Share your HHG26 Beach Pass');
-      if (shared) return;
-
+      // Open Instagram immediately, then prepare the local pass image and caption.
+      window.open('https://www.instagram.com', '_blank', 'noopener,noreferrer');
       await this.downloadPass(false, false);
       await this.copyCaption();
       this.instaModal.classList.remove('hidden');
