@@ -70,15 +70,15 @@ export class CanvasView {
   }
 
   drawDetails(ctx, model) {
-    const mint = '#a8f1b2';
+    const mint = '#b0f4d6';
     const blue = '#69b5f7';
     const ink = '#050505';
 
     // Exact ticket coordinates supplied for the three credential labels.
     const fields = [
-      { value: model.fullName || 'NAME', x: 921, y: 306, width: 161, height: 28 },
-      { value: model.roleTitle || 'ROLE', x: 918, y: 358, width: 159, height: 35 },
-      { value: model.orgName || 'TEAM', x: 920, y: 417, width: 158, height: 32 },
+      { value: model.fullName || 'NAME', x: 921, y: 306, width: 189, height: 28 },
+      { value: model.roleTitle || 'ROLE', x: 918, y: 358, width: 195, height: 35 },
+      { value: model.orgName || 'TEAM', x: 920, y: 417, width: 191, height: 32 },
     ];
 
     ctx.save();
@@ -88,7 +88,7 @@ export class CanvasView {
       ctx.fillStyle = mint;
       ctx.fillRect(field.x, field.y, field.width, field.height);
       ctx.fillStyle = ink;
-      ctx.font = '700 12px "Press Start 2P", monospace';
+      ctx.font = '700 14px "Press Start 2P", monospace';
       ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), field.width - 10), field.x + field.width / 2, field.y + field.height / 2 + 1);
     });
 
