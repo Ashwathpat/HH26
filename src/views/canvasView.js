@@ -70,36 +70,35 @@ export class CanvasView {
   }
 
   drawDetails(ctx, model) {
-    const panelX = 856;
-    const valueWidth = 307;
     const mint = '#b6e9d7';
     const blue = '#69b5f7';
     const ink = '#050505';
 
+    // Exact ticket coordinates supplied for the three credential labels.
     const fields = [
-      { value: model.fullName || 'NAME', y: 326 },
-      { value: model.roleTitle || 'ROLE', y: 389 },
-      { value: model.orgName || 'TEAM', y: 452 },
+      { value: model.fullName || 'NAME', x: 921, y: 306, width: 161, height: 28 },
+      { value: model.roleTitle || 'ROLE', x: 918, y: 358, width: 159, height: 35 },
+      { value: model.orgName || 'TEAM', x: 920, y: 417, width: 158, height: 32 },
     ];
 
     ctx.save();
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     fields.forEach((field) => {
-      // Cover only the original placeholder lettering, keeping the ticket-slot outlines intact.
       ctx.fillStyle = mint;
-      ctx.fillRect(panelX, field.y - 18, valueWidth, 36);
+      ctx.fillRect(field.x, field.y, field.width, field.height);
       ctx.fillStyle = ink;
-      ctx.font = '700 12px "Press Start 2P", monospace';
-      ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), valueWidth - 22), panelX + valueWidth / 2, field.y + 1);
+      ctx.font = '700 9px "Press Start 2P", monospace';
+      ctx.fillText(this.fitText(ctx, field.value.toUpperCase(), field.width - 10), field.x + field.width / 2, field.y + field.height / 2 + 1);
     });
 
-    // The final ticket template reserves this exact zone below the barcode for a unique Builder ID.
+    // Exact Builder ID coordinates supplied for the text below the barcode.
+    const builderId = (model.uniqueId || 'HHG26-0000').replace('ID-', '');
     ctx.fillStyle = blue;
-    ctx.fillRect(855, 704, 310, 46);
+    ctx.fillRect(1032, 695, 126, 19);
     ctx.fillStyle = ink;
-    ctx.font = '700 10px "Press Start 2P", monospace';
-    ctx.fillText(`BUILDER ID: ${(model.uniqueId || 'HHG26-0000').replace('ID-', '')}`, 1010, 725);
+    ctx.font = '700 8px "Press Start 2P", monospace';
+    ctx.fillText(this.fitText(ctx, builderId, 118), 1095, 705);
     ctx.restore();
   }
 
